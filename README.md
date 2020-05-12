@@ -6,3 +6,6 @@ Up to now, I've been using python for more than three years (from Dec 2016 to Ma
 + [Containers](https://github.com/suzyi/c-plus-plus/blob/master/containers.md): vector, 
 ### leetcode
 ### projects
+### Questions
+I am still confused with the questions below:
++ `vector<int> twoSum(vector<int>& nums, int target)` defines a function named twoSum over the variables nums and target, why do they use `& nums` instead of `nums`?
