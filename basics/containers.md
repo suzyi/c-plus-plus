@@ -5,5 +5,7 @@
   + `int n = a.size()` returns the size of the vector.
 + unordered_map
   + `#include <unordered_map>`
-  + `unordered_map<string, int> new_map={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}}; cout<<new_map["Feb"]<<endl;`
-  + `new_map.size()`
+  + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}}; cout<<myMap["Feb"]<<endl;`
+  + `myMap.size()`
+  + `cout << (bool)(myMap.find("Jan")!=myMap.end()) << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating the keyword is not in myMap.
+  + `cout << myMap.count("Jan") << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating it's not in myMap.
