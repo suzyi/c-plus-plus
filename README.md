@@ -9,6 +9,7 @@ Up to now, I've been using python for more than three years (from Dec 2016 to Ma
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map
 + [loop](https://github.com/suzyi/cpp/blob/master/basics/loop.md): for, while
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
++ comment and uncomment: ctrl+/
 ### leetcode
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
 ### projects
