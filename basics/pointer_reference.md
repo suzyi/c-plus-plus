@@ -1,3 +1,6 @@
+`&`有两个作用--取地址和引用
++ 取地址：`int a=10; int *b=&a;`
++ 引用：`int a=1; int &a_nickname=a;`
 ### Sample Code for Pointer and Reference
 The sample code below may help you better understand the c++ pointer.
 ```
@@ -63,7 +66,7 @@ The code above outputs "a=1, b=2". To accurately swap the values, using the code
 ```
 #include <iostream>
 using namespace std;
-void swap(int &p1, int &p2) {
+void swap(int &p1, int &p2) { //引用 int a=1; int b=2; int &p1=a; int &p2=b;
     int p=p1;
     p1=p2;
     p2=p;
