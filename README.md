@@ -8,7 +8,7 @@ Up to now, I've been using python for more than three years (from Dec 2016 to Ma
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [Containers](https://github.com/suzyi/c-plus-plus/blob/master/containers.md): vector, 
 + [loop](https://github.com/suzyi/cpp/blob/master/loop.md): for, while
-+ [pointer](https://github.com/suzyi/cpp/blob/master/basics/pointer.md): &, *
++ [pointer](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
 ### leetcode
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
 ### projects
