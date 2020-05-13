@@ -7,7 +7,7 @@ Up to now, I've been using python for more than three years (from Dec 2016 to Ma
 ### basics
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map
-+ [loop](https://github.com/suzyi/cpp/blob/master/basics/loop.md): for, while
++ [loop and if](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
 + comment and uncomment: ctrl+/
 ### leetcode
