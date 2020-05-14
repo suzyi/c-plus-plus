@@ -7,5 +7,7 @@
   + `#include <unordered_map>`
   + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}}; cout<<myMap["Feb"]<<endl;`
   + `myMap.size()`
-  + `cout << (bool)(myMap.find("Jan")!=myMap.end()) << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating the keyword is not in myMap.
-  + `cout << myMap.count("Jan") << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating it's not in myMap.
+  + How do I determine if a keyword is in an unordered_map container or not?
+    + Method 1- `cout << (bool)(myMap.find("Jan")!=myMap.end()) << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating the keyword is not in myMap.
+    + Method 2- `cout << myMap.count("Jan") << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating it's not in myMap.
+    + Method 3- `unordered_map<string, int> myMap;`, then for any keyword that's not in myMap, we have `myMap["anyKeyword"]=0`.
