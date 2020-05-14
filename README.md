@@ -12,6 +12,7 @@ Up to now, I've been using python for more than three years (from Dec 2016 to Ma
 + comment and uncomment: ctrl+/
 + `i++` vs `++i`: If `int i=0; string s="abc";`, then `cout<<s[i++]<<", i="<<i<<endl;` outputs `a, i=1` and `i=0; cout<<s[++i]<<", i="<<i<<endl;` outputs `b, i=1`.
 ### leetcode
++ [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
 ### projects
 ### Questions
