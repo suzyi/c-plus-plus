@@ -20,3 +20,4 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 ### Questions
 I am still confused with the questions below:
 + `vector<int> twoSum(vector<int>& nums, int target)` defines a function named twoSum over the variables nums and target, why do they use `& nums` instead of `nums`?
++ How do I outputs each element of an unordered_map? Maybe it's related to `auto`?
