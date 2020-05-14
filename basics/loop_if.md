@@ -2,18 +2,21 @@
 ```
 #include <iostream>
 using namespace std;
+#include <vector>
 int main() {
-	for(int i; i<3; i++) {
-	    cout  << i <<endl;
-	}
-	return 0;
+    for(int i=0,j=0; i<4, j<5; i++, j++) {
+        cout<<"i="<<i<<"j="<<j<<endl;
+    }
+    return 0;
 }
 ```
 输出结果为：
 ```
-0
-1
-2
+i=0j=0
+i=1j=1
+i=2j=2
+i=3j=3
+i=4j=4
 ```
 ### while
 ```
