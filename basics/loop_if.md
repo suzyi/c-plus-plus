@@ -18,6 +18,24 @@ i=2j=2
 i=3j=3
 i=4j=4
 ```
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+    string s="5as";
+    for (char& c : s) {
+        cout<<c<<endl;
+    }
+	return 0;
+}
+```
+输出结果为：
+```
+5
+a
+s
+```
 ### while
 ```
 #include <iostream>
