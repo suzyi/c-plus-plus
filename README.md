@@ -7,7 +7,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + http://www.dooccn.com/cpp/ (unable to compile `unordered_map`), https://www.tutorialspoint.com/compile_cpp_online.php
 ### basics
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
-+ [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map
++ [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map, stack.
 + [loop and if](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
 + comment and uncomment: ctrl+/
