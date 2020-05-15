@@ -55,3 +55,32 @@ public:
     }
 };
 ```
+20. Valid Parentheses
+
+Given a string containing just the characters '(', ')', '{', '}', '[', ']', determine if the input string is valid.
+```
+Input: "()[]{}"
+Output: true
+
+Input: "(]"
+Output: false
+```
+```
+class Solution {
+public:
+    bool isValid(string s) {
+        stack<char> a;
+        for(char &c:s) {
+            switch(c) {
+                case '(':
+                case '[':
+                case '{': a.push(c); break;
+                case ')': if(a.empty() || a.top()!='(') return false; else a.pop(); break;
+                case ']': if(a.empty() || a.top()!='[') return false; else a.pop(); break;
+                case '}': if(a.empty() || a.top()!='{') return false; else a.pop(); break;
+            }
+        }
+        return a.empty();
+    }
+};
+```
