@@ -21,7 +21,7 @@ The sample code below may help you better understand the c++ reference.
 ```
 #include <iostream>
 using namespace std;
-void swap(int &p1, int &p2) {
+void swap(int &p1, int &p2) { //int &p1=a; int &p2=b;
     int p=p1;
     p1=p2;
     p2=p;
