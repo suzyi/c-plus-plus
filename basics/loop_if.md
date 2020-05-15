@@ -70,3 +70,18 @@ int main() {
 	}
 }
 ```
+### switch
+```
+#include <iostream>
+using namespace std;
+
+int main() {
+    char a = 'X';
+	switch (a) {
+	    case 'J':
+	    case 'M': cout<<31<<endl; break;
+	    default: cout<<28<<endl;
+	}
+	return 0;
+}
+```
