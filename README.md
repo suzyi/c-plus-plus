@@ -8,7 +8,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 ### basics
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map, stack.
-+ [loop and if](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if
++ [loop and if and switch](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if, switch, break;
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
 + comment and uncomment: ctrl+/
 + `i++` vs `++i`: If `int i=0; string s="abc";`, then `cout<<s[i++]<<", i="<<i<<endl;` outputs `a, i=1` and `i=0; cout<<s[++i]<<", i="<<i<<endl;` outputs `b, i=1`.
