@@ -11,3 +11,11 @@
     + Method 1- `cout << (bool)(myMap.find("Jan")!=myMap.end()) << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating the keyword is not in myMap.
     + Method 2- `cout << myMap.count("Jan") << endl;` outputs 1, indicating that the keyword "Jan" is in myMap, else outputs 0, indicating it's not in myMap.
     + Method 3- `unordered_map<string, int> myMap;`, then for any keyword that's not in myMap, we have `myMap["anyKeyword"]=0`.
++ stack
+  + `#include <stack>`
+  + `stack<char> myStack;` defines a stack named myStack.
+  + `myStack.push('5'); myStack.push('t'); myStack.push('b');` adds three elements to the defined stack.
+  + `myStack.size()` returns the size of the stack.
+  + `myStack.top()` returns the element at the top of the stack.
+  + If myStack is empty, `myStack.empty()` returns 1, else returns 0.
+  + `myStack.pop()` removes the top element and returns void. So `a = myStack.pop();` is a wrong line of code.
