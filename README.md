@@ -4,7 +4,9 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + Up to now, I've been using python for more than three years (from Dec 2016 to May 2020). So why do I begin to learn cpp? The major reason is that cpp is faster than python. For example, to solve the same problem (leetcode 1. Two Sum) with the save algorithm below, cpp costs 476ms while python consumes 4048 ms.
 + Part of Tensorflow is written in c++ and Tensorflow also provides stable API for c++ and python and unstable API for other languages.
 ### Online Programming Platform
-+ http://www.dooccn.com/cpp/ (unable to compile `unordered_map`), https://www.tutorialspoint.com/compile_cpp_online.php
++ http://www.dooccn.com/cpp/ (unable to compile `unordered_map`)
++ https://www.tutorialspoint.com/compile_cpp_online.php
++ nowcoder OJ input-output exercises: https://ac.nowcoder.com/acm/contest/320#question
 ### basics
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): vector, unordered_map, stack.
