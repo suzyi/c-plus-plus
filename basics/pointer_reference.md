@@ -1,6 +1,10 @@
 `&`有两个作用--取地址和引用
 + 取地址：`int a=10; int *b=&a;`
 + 引用：`int a=1; int &a_nickname=a;`
+
+`.` vs `->`
++ `Listnode head(-1);` then `head.next`.
++ `Listnode *slow = &head;` then `slow->next;`
 ### Sample Code for Pointer and Reference
 The sample code below may help you better understand the c++ pointer.
 ```
