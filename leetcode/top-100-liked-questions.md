@@ -1,4 +1,6 @@
 ### Top 100 Liked Questions
+solved: 1, 3, 19, 20, 
+
 1. Two Sum
 ```
 Given nums = [2, 7, 11, 15], target = 9,
