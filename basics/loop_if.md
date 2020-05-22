@@ -19,23 +19,32 @@ i=3j=3
 i=4j=4
 ```
 ```
+
 #include <iostream>
 using namespace std;
 
 int main() {
     string s="5as";
     for (char& c : s) {
-        cout<<c<<endl;
+        cout<<c<<'\t';
     }
 	return 0;
 }
 ```
-输出结果为：
+gives `5	a	s	`.
 ```
-5
-a
-s
+#include <iostream>
+using namespace std;
+
+int main() {
+    string a[] = {"Jan", "Feb", "Mar"};
+    for(auto tmp:a) {
+        cout<<tmp<<'\t';
+    }
+	return 0;
+}
 ```
+gives `Jan	Feb	Mar	`.
 ### while
 ```
 #include <iostream>
