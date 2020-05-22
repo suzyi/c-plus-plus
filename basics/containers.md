@@ -1,3 +1,6 @@
++ array
+  + `int a[] = {1, 2, 3, 4, 5}; cout<<*a<<endl;` gives `1`.
+  + `string a[] = {"Jan", "Feb"}; cout<<a[1]<<endl;` gives `Feb`.
 + vector
   + `#include <vector>`.
   + `vector<int> a(10);` defines a vector containing 10 int-type elements with all elements intilized with value 0.
