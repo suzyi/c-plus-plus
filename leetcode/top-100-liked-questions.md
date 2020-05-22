@@ -55,6 +55,40 @@ public:
     }
 };
 ```
+19. Remove Nth Node From End of List
+```
+Given a linked list, remove the n-th node from the end of list and return its head.
+Example: Given linked list: 1->2->3->4->5, and n = 2. After removing the second node from the end, the linked list becomes 1->2->3->5.
+```
++ `fast` pointer points to the node which is N step away from the to_be_delete node. `slow` pointer points to the to_be_delete node.
+
+The algorithms is described as below:
++ Firstly, move fast pointer N step forward.
++ Secondly,move fast and slow pointers simultaneously one step a time forward till the fast pointer reach the end, which will cause the slow pointer points to the previous node of the to_be_delete node.
++ Finally, slow->next = slow->next->next.
+```
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if(!head) 
+            return nullptr;
+        ListNode new_head(-1);
+        new_head.next = head;
+        ListNode *slow = &new_head, *fast = &new_head;
+        for(int i=0; i<n; i++) {
+            fast = fast->next;
+        }
+        while(fast->next) {
+            slow = slow->next;
+            fast = fast->next;
+        }
+        ListNode *node_to_be_delete = slow->next;
+        slow->next = slow->next->next;
+        delete node_to_be_delete;
+        return new_head.next;
+    }
+};
+```
 20. Valid Parentheses
 
 Given a string containing just the characters '(', ')', '{', '}', '[', ']', determine if the input string is valid.
