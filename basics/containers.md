@@ -2,6 +2,7 @@
   + `#include <vector>`.
   + `vector<int> a(10);` defines a vector containing 10 int-type elements with all elements intilized with value 0.
   + `vector<int> a(10,1);` defines a vector containing 10 int-type elements with all elements intilized with value 1.
+  + `vector<vector<string>> a;`, then `a` could be `a = [["ate","eat","tea"], ["nat","tan"], ["bat"]];`.
   + `int n = a.size()` returns the size of the vector.
 + unordered_map
   + `#include <unordered_map>`
