@@ -7,5 +7,5 @@ cout << typeid(au_a).name() << endl; // output "int".
 ```
 ### bool
 + `false`
-  + `NULL`, empty container (e.g. `int a;` then `a` is an empty container.), `0`
+  + `false`-equivalent: `NULL`, empty container (e.g. `int a;` then `a` is an empty container.), `0`
 + `true`
