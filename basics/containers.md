@@ -14,7 +14,13 @@
 + unordered_map
   + `#include <unordered_map>`
   + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}};`
-    + `cout<<myMap["Feb"]<<endl;` gives 28.
+    + `cout<<myMap["Feb"];` gives 28.
+    + 
+      ```
+          for(auto tmp:myMap) {
+            cout<<tmp.first<<": "<<tmp.second<<endl;
+          }
+      ```
     + `myMap["May"] = 31; cout<<myMap["May"];` gives 31.
   + `unordered_map<string, vector<string>> a = {{"abc", {"abc", "acb", "bac", "bca", "cab", "cba"}}, {"ef", {"ef", "fe"}}};`
     + `cout << a["abc"][3];` gives "bca".
