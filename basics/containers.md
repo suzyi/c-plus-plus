@@ -9,11 +9,13 @@
   + `vector<int> a(10,1);` defines a vector containing 10 int-type elements with all elements intilized with value 1.
   + `vector<vector<string>> a = {{"ate","eat","tea"}, {"nat","tan"}, {"bat"}};`
     + `cout<<a[0][0];` gives "ate", `cout<<a[1][0];` gives "nat".
+    + `a.push_back({"ef", "fe"}); cout<<a[3][1];` outputs "fe".
   + `int n = a.size()` returns the size of the vector.
 + unordered_map
   + `#include <unordered_map>`
   + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}};`
-    + `cout<<myMap["Feb"]<<endl;` gives `28`.
+    + `cout<<myMap["Feb"]<<endl;` gives 28.
+    + `myMap["May"] = 31; cout<<myMap["May"];` gives 31.
   + `unordered_map<string, vector<string>> a = {{"abc", {"abc", "acb", "bac", "bca", "cab", "cba"}}, {"ef", {"ef", "fe"}}};`
     + `cout << a["abc"][3];` gives "bca".
   + `myMap.size()`
