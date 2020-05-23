@@ -6,6 +6,7 @@ auto au_a = a;//自动推断出au_a的类型为int
 cout << typeid(au_a).name() << endl; // output "int".
 ```
 ### bool
++ `boolean leftVailid = true;` or `boolean leftVailid = false;`
 + `false`
   + `false`-equivalent: `NULL`, empty container (e.g. `int a;` then `a` is an empty container.), `0`
 + `true`
