@@ -1,7 +1,7 @@
 ### Top 100 Liked Questions
 solved: 
 + 1~100: 1, 3, 19, 20, 49, 70, 94, 96, 
-+ 101~200:
++ 101~200: 136, 
 + 201~300:
 
 1. Two Sum
@@ -220,6 +220,28 @@ public:
             dp.push_back(tmp);
         }
         return dp[n];
+    }
+};
+```
+136. Single Number
+
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+```
+Example: Input: [4,1,2,1,2], Output: 4
+```
+```
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ans;
+        unordered_map<int, int> mp;
+        for(int tmp: nums) {
+            mp[tmp] += 1;
+        }
+        for(auto tmp: mp) {
+            if(tmp.second==1) ans = tmp.first;
+        }
+        return ans;
     }
 };
 ```
