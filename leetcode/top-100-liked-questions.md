@@ -1,5 +1,8 @@
 ### Top 100 Liked Questions
-solved: 1, 3, 19, 20, 
+solved: 
++ 1~100: 1, 3, 19, 20, 49
++ 101~200:
++ 201~300:
 
 1. Two Sum
 ```
