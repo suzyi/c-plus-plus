@@ -1,6 +1,6 @@
 ### Top 100 Liked Questions
 solved: 
-+ 1~100: 1, 3, 19, 20, 49, 70, 94
++ 1~100: 1, 3, 19, 20, 49, 70, 94, 96, 
 + 101~200:
 + 201~300:
 
@@ -200,6 +200,26 @@ public:
             root = root->right;
         }
         return ans;
+    }
+};
+```
+96. Unique Binary Search Trees
+
+Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
+```
+class Solution {
+public:
+    int numTrees(int n) {
+        vector<int> dp(3, 1);
+        dp[2] = 2;
+        for(int i=3; i<=n; i++) {
+            int tmp = 0;
+            for(int j=0; j<i; j++) {
+                tmp += dp[j]*dp[i-1-j];
+            }
+            dp.push_back(tmp);
+        }
+        return dp[n];
     }
 };
 ```
