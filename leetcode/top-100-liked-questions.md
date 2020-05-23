@@ -120,3 +120,39 @@ public:
     }
 };
 ```
+49. Group Anagrams
+
+Given an array of strings, group anagrams together.
+```
+Example: Input: ["eat", "tea", "tan", "ate", "nat", "bat"],
+Output:
+[ ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]]
+```
+```
+algorithm:
+str = "eat";
+t = str;
+sort(t.begin(), t.end()); // then t = "aet";
+res["aet"] = "eat";
+```
+```
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        unordered_map<string, vector<string>> res;
+        for(string str:strs) {
+            string t = str;
+            sort(t.begin(), t.end());
+            res[t].push_back(str);
+        }
+        
+        vector<vector<string>> ans;
+        for(auto tmp:res) {
+            ans.push_back(tmp.second);
+        }
+        return ans;
+    }
+};
+```
