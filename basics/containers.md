@@ -11,6 +11,8 @@
     + `cout<<a[0][0];` gives "ate", `cout<<a[1][0];` gives "nat".
     + `a.push_back({"ef", "fe"}); cout<<a[3][1];` outputs "fe".
   + `int n = a.size()` returns the size of the vector.
+  + `vector<string> a = {"Mo", "Tu", "We", "Th", "Fr"};`
+    + `cout << a.back() << ", " << a[a.size()-2];` gives "Fr, Th".
 + unordered_map
   + `#include <unordered_map>`
   + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}};`
