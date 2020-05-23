@@ -13,3 +13,4 @@ cout << typeid(au_a).name() << endl; // output "int".
 ### char and string
 + `char a='p'`
 + `string a="good"`
++ wrong definition `char a="p"`, `string a='good'`
