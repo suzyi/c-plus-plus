@@ -1,6 +1,6 @@
 ### Top 100 Liked Questions
 solved: 
-+ 1~100: 1, 3, 19, 20, 49, 70
++ 1~100: 1, 3, 19, 20, 49, 70, 94
 + 101~200:
 + 201~300:
 
@@ -177,6 +177,29 @@ public:
             dp.push_back(dp[i-2]+dp[i-1]);
         }
         return dp[n-1];
+    }
+};
+```
+94. Binary Tree Inorder Traversal
+
+Given a binary tree, return the inorder traversal of its nodes' values.
+```
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        stack<TreeNode *> todo;
+        vector<int> ans;
+        while(root || !todo.empty()) {
+            while(root) {
+                todo.push(root);
+                root = root->left;
+            }
+            root = todo.top();
+            todo.pop();
+            ans.push_back(root->val);
+            root = root->right;
+        }
+        return ans;
     }
 };
 ```
