@@ -10,3 +10,6 @@ cout << typeid(au_a).name() << endl; // output "int".
 + `false`
   + `false`-equivalent: `NULL`, empty container (e.g. `int a;` then `a` is an empty container.), `0`
 + `true`
+### char and string
++ `char a='p'`
++ `string a="good"`
