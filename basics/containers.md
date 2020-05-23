@@ -1,8 +1,9 @@
 + array
   + `int a[] = {1, 2, 3, 4, 5};`
-    + `cout<<*a<<endl;` gives `1`.
+    + `cout<<*a;` gives 1.
+    + `cout<<sizeof(a)/<<sizeof(a[0]);` give 5.
   + `string a[] = {"Jan", "Feb"};`
-    + `cout<<a[1];` gives `Feb`.
+    + `cout<<a[1];` gives "Feb".
 + vector
   + `#include <vector>`.
   + `vector<int> a(10);` defines a vector containing 10 int-type elements with all elements intilized with value 0.
