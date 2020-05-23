@@ -40,3 +40,9 @@
   + `myStack.top()` returns the element at the top of the stack.
   + If myStack is empty, `myStack.empty()` returns 1, else returns 0.
   + `myStack.pop()` removes the top element and returns void. So `a = myStack.pop();` is a wrong line of code.
++ queue
+  + `#include <queue>`
+  + `queue<int> q; for(int i=0; i<5; i++) q.push(i);`
+    + `cout << q.size();` gives 5.
+    + `cout << q.front() << ", " << q.back();` gives "0, 4".
+    + `q.pop(); cout << q.front();` gives 1.
