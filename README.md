@@ -27,6 +27,8 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
 ### projects
++ Sorting Algorithm
++ Logistic Regression
 ### Questions
 I am still confused with the questions below:
 + `vector<int> twoSum(vector<int>& nums, int target)` defines a function named twoSum over the variables nums and target, why do they use `& nums` instead of `nums`?
