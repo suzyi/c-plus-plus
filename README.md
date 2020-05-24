@@ -22,6 +22,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [struct and class](https://github.com/suzyi/cpp/blob/master/basics/struct_class.md).
 + [common functions](https://github.com/suzyi/cpp/blob/master/basics/common_functions.md): sort, 
 + [data types](https://github.com/suzyi/cpp/blob/master/basics/data_types.md): int, bool, string, char, auto
++ [header files](https://github.com/suzyi/cpp/blob/master/basics/header.md): How to create your own header (.h) files in C/C++?
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
