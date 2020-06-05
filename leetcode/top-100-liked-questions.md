@@ -251,3 +251,20 @@ Given an array of size n, find the majority element. The majority element is the
 ```
 Example 1: Input: [3,2,3], Output: 3
 ```
+```
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        unordered_map<int, int> mp;
+        vector<int> ans;
+        for(auto t: nums) {
+            mp[t]++;
+        }
+        
+        for(auto s: mp) {
+            if(s.second>nums.size()/2) ans.push_back(s.first);
+        }
+        return ans[0];
+    }
+};
+```
