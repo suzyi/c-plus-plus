@@ -1,7 +1,7 @@
 ### Top 100 Liked Questions
 solved: 
 + 1~100: 1, 3, 19, 20, 49, 70, 94, 96, 
-+ 101~200: 136, 
++ 101~200: 136, 169, 
 + 201~300:
 
 1. Two Sum
@@ -244,4 +244,10 @@ public:
         return ans;
     }
 };
+```
+169. Majority Element
+
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array.
+```
+Example 1: Input: [3,2,3], Output: 3
 ```
