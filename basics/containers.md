@@ -8,6 +8,7 @@
   + `#include <vector>`.
   + `vector<int> a(10);` defines a vector containing 10 int-type elements with all elements intilized with value 0.
   + `vector<int> a(10,1);` defines a vector containing 10 int-type elements with all elements intilized with value 1.
+  + `int a[] = {1, 4, 2, 5}; int len = sizeof(a)/sizeof(a[0]); vector<int> vec(a, a+len);`
   + `vector<vector<string>> a = {{"ate","eat","tea"}, {"nat","tan"}, {"bat"}};`
     + `cout<<a[0][0];` gives "ate", `cout<<a[1][0];` gives "nat".
     + `a.push_back({"ef", "fe"}); cout<<a[3][1];` outputs "fe".
