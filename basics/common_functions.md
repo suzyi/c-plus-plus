@@ -23,3 +23,8 @@ gives
 1 ,4 ,2 ,5 ,The summation of a is 12
 1 ,4 ,2 ,5 ,The summation of the first 3 elements of vec is 7
 ```
+### >>
+```
+int a = 6>>1; // 6的二进制去掉末尾，结果a=3
+int b = 5>>1; // 5的二进制去掉末尾，结果b=2
+```
