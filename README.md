@@ -20,7 +20,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + comment and uncomment: ctrl+/
 + `i++` vs `++i`: If `int i=0; string s="abc";`, then `cout<<s[i++]<<", i="<<i<<endl;` outputs `a, i=1` and `i=0; cout<<s[++i]<<", i="<<i<<endl;` outputs `b, i=1`.
 + [struct and class](https://github.com/suzyi/cpp/blob/master/basics/struct_class.md).
-+ [common functions](https://github.com/suzyi/cpp/blob/master/basics/common_functions.md): sort, 
++ [common functions](https://github.com/suzyi/cpp/blob/master/basics/common_functions.md): sort, accumulate
 + [data types](https://github.com/suzyi/cpp/blob/master/basics/data_types.md): int, bool, string, char, auto
 + [header files](https://github.com/suzyi/cpp/blob/master/basics/header.md): How to create your own header (.h) files in C/C++?
 ### leetcode
