@@ -342,3 +342,51 @@ public:
     }
 };
 ```
+560. Subarray Sum Equals K
+
+```
+Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+Example 1: Input:nums = [1,1,1], k = 2, Output: 2
+```
++ Time Limit Exceeded
+```
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        for(int i=1; i<nums.size(); i++) nums[i] += nums[i-1];
+        nums.insert(nums.begin(), 0);
+        
+        int ans=0;
+        for(int i=1; i<nums.size(); i++) {
+            for(int j=0; j<i; j++) {
+                if(nums[i]-nums[j]==k) ans++;
+            }
+        }
+        
+        return ans;
+    }
+};
+```
+560. Subarray Sum Equals K
+```
+Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
+Example 1: Input:nums = [1,1,1], k = 2 Output: 2
+```
+```
+class Solution {
+public:
+    int subarraySum(vector<int>& nums, int k) {
+        int ans=0, sum=0;
+        unordered_map<int, int> mp;
+        mp[0] = 1;
+        
+        for(int i=0; i<nums.size(); i++) {
+            sum += nums[i];
+            ans += mp[sum-k];
+            mp[sum] ++;
+        }
+        
+        return ans;
+    }
+};
+```
