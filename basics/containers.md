@@ -15,6 +15,7 @@
   + `int n = a.size()` returns the size of the vector.
   + `vector<string> a = {"Mo", "Tu", "We", "Th", "Fr"};`
     + `cout << a.back() << ", " << a[a.size()-2];` gives "Fr, Th".
+    + `a.insert(a.begin(), "Su")`. then a = {"Su", "Mo", "Tu", "We", "Th", "Fr"};
 + unordered_map
   + `#include <unordered_map>`
   + `unordered_map<string, int> myMap={{"Jan", 31}, {"Feb", 28}, {"Mar", 31}, {"Apr", 30}};`
