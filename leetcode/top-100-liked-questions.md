@@ -302,3 +302,43 @@ public:
     }
 };
 ```
+494. Target Sum
+
+```
+You are given a list of non-negative integers, a1, a2, ..., an, and a target, S. Now you have 2 symbols + and -. For each integer, you should choose one from + and - as its new symbol.
+
+Find out how many ways to assign symbols to make sum of integers equal to target S.
+Example 1:Input: nums is [1, 1, 1, 1, 1], S is 3. Output: 5 
+Explanation: 
+-1+1+1+1+1 = 3
++1-1+1+1+1 = 3
++1+1-1+1+1 = 3
++1+1+1-1+1 = 3
++1+1+1+1-1 = 3
+
+There are 5 ways to assign symbols to make the sum of nums be target 3.
+```
++ Suppose the set `nums=[a1, a2, ..., an]` is divided into two disjoint subsets P (for positive sysmbol) and N (for negtive sysmbol). For example, if `nums = [1, 2, 3, 4]` and `target=2`, then P and N could be `P = [2, 4]` and `N = [1, 3]`.
++ The problem is equavelent to answering how many subsets, denoted as `P`, do we have such that `sum(P)=(sum(nums)+target)/2`?
+  + Proof: Since `sum(P)-sum(N) = target` and `sum(P)+sum(N) = sum(nums)`, then we have `sum(P)=(sum(nums)+target)/2`.
+```
+class Solution {
+public:
+    int findTargetSumWays(vector<int>& nums, int S) {
+        int sum = 0;
+        for (auto n : nums) sum += n;
+        if(abs(S)>sum || (sum+S)%2==1) return 0;
+        int target = (sum+S)/2;
+        
+        vector<int> vec(target+1);
+        vec[0] = 1;
+        for(int i=0; i<nums.size(); i++) {
+            for(int j=target; j>=nums[i]; j--) {
+                vec[j] = vec[j] + vec[j-nums[i]];
+            }
+        }
+        
+        return vec[target];
+    }
+};
+```
