@@ -2,6 +2,7 @@
 + 取地址：`int a=10; int *b=&a;`
 + 引用：`int a=1; int &a_nickname=a;`
 + 按位与运算：`A = 60; B = 13;` 则`A`、`B`的二进制分别是`A = 0011 1100; B = 0000 1101;` 所以`A & B = 0000 1100;`
+  + 奇偶数判断：`if(A & 1==1) cout<<"A是奇数";`
 
 `.` vs `->`
 + `Listnode head(-1);` then `head.next`.
