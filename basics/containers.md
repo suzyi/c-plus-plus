@@ -47,3 +47,9 @@
     + `cout << q.size();` gives 5.
     + `cout << q.front() << ", " << q.back();` gives "0, 4".
     + `q.pop(); cout << q.front();` gives 1.
++ bitset
+  + `#include <bitset>`
+  + `bitset<5> a;`
+    + `cout << "a=" << a << endl;` gives a=00000
+  + `bitset<5> b(3);`
+    + `cout << "b=" << b << ", " << b.size() << ", "<<  b[0] << ", "<<  b[1] << ", "<<  b[2] << endl;` gives b=00011, 5, 1, 1, 0
