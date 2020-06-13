@@ -454,3 +454,48 @@ public:
     }
 };
 ```
+215. Kth Largest Element in an Array
+
+```
+Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.
+Example 1: Input: [3,2,1,5,6,4] and k = 2, Output: 5
+Example 2: Input: [3,2,3,1,2,4,5,5,6] and k = 4, Output: 4
+```
+```
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
+        int newNums[nums.size()];
+        for(int i=0; i<nums.size(); i++) newNums[i]=nums[i];
+        quickSort(newNums, 0, sizeof(newNums)/sizeof(newNums[0])-1);
+        return newNums[sizeof(newNums)/sizeof(newNums[0])-k];
+    }
+    
+    void quickSort(int nums[], int left, int right) {
+    if(left>right) return;
+
+    int base = nums[right]; // choose the right-most element as base
+    int l=left;
+    int r=right;
+
+    while(l!=r) {
+        while(nums[l]<=base && l<r) l++;
+
+        while(nums[r]>=base && l<r) r--;
+
+        if(l<r) {
+            int tmp=nums[l];
+            nums[l] = nums[r];
+            nums[r] = tmp;
+        }
+    }
+
+    nums[right] = nums[l];
+    nums[l] = base;
+
+    quickSort(nums, left, l-1);
+    quickSort(nums, l+1, right);
+}
+    
+};
+```
