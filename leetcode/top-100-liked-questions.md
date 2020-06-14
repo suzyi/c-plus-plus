@@ -592,3 +592,34 @@ public:
     }
 };
 ```
+739. Daily Temperatures
+```
+Given a list of daily temperatures T, return a list such that, for each day in the input, tells you how many days you would have to wait until a warmer temperature. If there is no future day for which this is possible, put 0 instead.
+For example, given the list of temperatures T = [73, 74, 75, 71, 69, 72, 76, 73], your output should be [1, 1, 4, 2, 1, 1, 0, 0].
+```
+```
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& T) {
+        int n = T.size();
+        vector<int> ans(n, 0);
+        
+        for(int i=0; i<n-1; i++) {
+            if(i>0 and T[i]==T[i-1]) {
+                if(ans[i-1]>0) ans[i] = ans[i-1] - 1;
+                else ans[i] = 0;
+            }
+            else {
+                for(int j=i+1; j<n; j++) {
+                    if(T[j]>T[i]) {
+                    ans[i] = j-i;
+                    break;
+                }
+            }
+
+            }
+        }
+        return ans;
+    }
+};
+```
