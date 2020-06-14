@@ -623,3 +623,36 @@ public:
     }
 };
 ```
+438. Find All Anagrams in a String
+```
+Example 1: Input: s: "cbaebabacd" p: "abc", Output: [0, 6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc".
+
+Example 2: Input: s: "abab" p: "ab", Output: [0, 1, 2]
+Explanation:
+The substring with start index = 0 is "ab", which is an anagram of "ab".
+The substring with start index = 1 is "ba", which is an anagram of "ab".
+The substring with start index = 2 is "ab", which is an anagram of "ab".
+```
+```
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int ns = s.size(), np = p.size();
+        vector<int> ans, mp(26, 0), tmp(26, 0);
+        if(np>ns) return ans;
+        
+        for(int i=0; i<np; i++) tmp[s[i]-'a']++, mp[p[i]-'a']++;
+        if(tmp==mp) ans.push_back(0);
+        
+        for(int i=np; i<ns; i++) {
+            tmp[s[i-np]-'a']--;
+            tmp[s[i]-'a']++;
+            if(tmp==mp) ans.push_back(i-np+1);
+        }
+        return ans;
+    }
+};
+```
