@@ -551,3 +551,23 @@ public:
     }
 };
 ```
+621. Task Scheduler
+```
+Input: tasks = ["A","A","A","B","B","B"], n = 2, Output: 8
+Explanation: A -> B -> idle -> A -> B -> idle -> A -> B.
+```
+```
+class Solution {
+public:
+    int leastInterval(vector<char>& tasks, int n) {
+        int count=0, ans=0;
+        unordered_map<char, int> mp;
+        
+        for(auto t: tasks) mp[t]++, count = max(count, mp[t]);
+        ans = (count-1)*(n+1);
+        for(auto t: mp) if(t.second==count) ans++;
+        
+        return max(ans, (int)tasks.size());
+    }
+};
+```
