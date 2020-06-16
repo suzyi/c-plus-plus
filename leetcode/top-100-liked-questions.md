@@ -656,3 +656,26 @@ public:
     }
 };
 ```
+347. Top K Frequent Elements
+```
+Given a non-empty array of integers, return the k most frequent elements.
+Example 1: Input: nums = [1,1,1,2,2,3], k = 2, Output: [1,2]
+Example 2: Input: nums = [1], k = 1, Output: [1]
+```
+```
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        vector<int> ans;
+        vector<vector<int>> freq2num(nums.size()+1);
+        
+        for(int t: nums) mp[t]++;
+        for(auto t: mp) freq2num[t.second].push_back(t.first);
+        for(int i=nums.size(); i>=0 and ans.size()<k; i--) {
+            for(auto t: freq2num[i]) ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
