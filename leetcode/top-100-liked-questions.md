@@ -717,3 +717,40 @@ public:
     }
 };
 ```
+200. Number of Islands
+```
+Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+```
+```
+class Solution {
+public:
+    int numIslands(vector<vector<char>>& grid) {
+        int ans=0;
+        if(grid.size()==0 or grid[0].size()==0) return 0;
+        for(int i=0; i<grid.size(); i++) {
+            for(int j=0; j<grid[0].size(); j++) {
+                if(grid[i][j]=='1') {
+                    ans++;
+                    dfs(grid, i, j);
+                }
+            }
+        }
+        return ans;
+    }
+
+private:
+    void dfs(vector<vector<char>> &grid, int x, int y) {
+        grid[x][y] = '0';
+        if(x>0 and grid[x-1][y]=='1') dfs(grid, x-1, y);
+        if(x<grid.size()-1 and grid[x+1][y]=='1') dfs(grid, x+1, y);
+        if(y>0 and grid[x][y-1]=='1') dfs(grid, x, y-1);
+        if(y<grid[0].size()-1 and grid[x][y+1]=='1') dfs(grid, x, y+1);
+    }
+};
+```
