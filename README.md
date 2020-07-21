@@ -23,6 +23,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [common functions](https://github.com/suzyi/cpp/blob/master/basics/common_functions.md): sort, accumulate
 + [data types](https://github.com/suzyi/cpp/blob/master/basics/data_types.md): int, bool, string, char, auto
 + [header files](https://github.com/suzyi/cpp/blob/master/basics/header.md): How to create your own header (.h) files in C/C++?
++ [::](https://github.com/suzyi/cpp/blob/master/basics/scope-resolution-operator.md): This is scope resolution operator.
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
