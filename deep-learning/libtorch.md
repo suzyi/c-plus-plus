@@ -1,6 +1,18 @@
 # libtorch
 Today is Wednesday, Feb 24, 2021.
 ### 1 - download the libtorch from the official website
+Before downloading, I should say that we don't need any VPN for downloading the libtorch.
++ step 1. Go to the website "https://pytorch.org/get-started/locally/".
++ step 2. Set 
+  + "PyTorch Build" to "Stable(version number)"
+  + "Your OS" to "Windows"
+  + "Package" to "LibTorch"
+  + "Language" to "C++/Java"
+  + "CUDA" to CUDA version which can be found by following the steps below:
+    + substep 1. go to the Desktop of your computer
+    + substep 2. right click and then choose "Nvidia Control panel"
+    + substep 3. "Help" -> "System Info" -> "组件" -> "3D settings", then you will see "NVCUDA.DLL" whose product name is "NVIDIA CUDA 10.2.132 driver" for example, in which "10.2" is the CUDA version you are seeking for.
++ download the debug version and then unzip it to your preferred directory. For examle, mine is "D:\libtorch-debug-1.7.1\libtorch"
 ### 2 - deploy the libtorch on Visual Studio 2019
 Before deploying libtorch on Visual Studio, I assume that you've installed Visual Studio 2019 on your computer and your OS is Windows 10. The deploying procedure below may work as well on other computer configuration with a little change.
 
