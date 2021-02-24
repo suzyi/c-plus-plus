@@ -29,6 +29,8 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
   + [.cpp]
   + [.pdb]
 + [::](https://github.com/suzyi/cpp/blob/master/basics/scope-resolution-operator.md): This is scope resolution operator.
+### deep learning
++ [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example.
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
