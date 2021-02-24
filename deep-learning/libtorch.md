@@ -56,4 +56,6 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-+ step 8. Click "Local Windows Debugger" or alternatively, click "Build" -> "Build Solution" and then "Debug" -> "Start Debugging".
++ step 8. Change the "Configuration" to "Active(Debug)" and "Platform" to "x64".
++ step 9. Click "Local Windows Debugger" or alternatively, click "Build" -> "Build Solution" and then "Debug" -> "Start Debugging". After doing this, if you see right output, then the libtorch is correctly deployed on your machine.
++ step 10. If you close the project "hellolibtorch", just go to the directory where it was created and click "hellotorch.vcxproj", then the project will be opened.
