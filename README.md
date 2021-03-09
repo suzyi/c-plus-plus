@@ -29,6 +29,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
   + [.cpp]
   + [.pdb]
 + [::](https://github.com/suzyi/cpp/blob/master/basics/scope-resolution-operator.md): This is scope resolution operator.
++ [constructor and destructor](https://github.com/suzyi/cpp/blob/master/basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
 ### deep learning
 + [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example.
 + [linear regression](https://github.com/suzyi/cpp/blob/master/deep-learning/linearRegression.cpp): contain the source cpp file of a toy example of linear regression.
