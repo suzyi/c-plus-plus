@@ -14,7 +14,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + nowcoder OJ input-output exercises: https://ac.nowcoder.com/acm/contest/320#question
 ### basics
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
-+ [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector.
++ [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector, pair.
 + [loop and if and switch](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if, switch, break, auto;
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
 + comment and uncomment: ctrl+/
