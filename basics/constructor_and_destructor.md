@@ -4,17 +4,31 @@ A constructor is used to complete the initialization process when an object is c
 ### How to define a constructor?
 + The consturctor of a classs has the same name as the class itself. For example, 
 ```
-class Counter
-{
+// https://docs.microsoft.com/zh-cn/cpp/cpp/constructors-cpp?view=msvc-160
+class Box {
 public:
-    Counter()
-    {
-        m_value = 0;
-    }
+    // Default constructor
+    Box() {}
+
+    // Initialize a Box with equal dimensions (i.e. a cube)
+    explicit Box(int i) : m_width(i), m_length(i), m_height(i) // member init list
+    {}
+
+    // Initialize a Box with custom dimensions
+    Box(int width, int length, int height)
+        : m_width(width), m_length(length), m_height(height)
+    {}
+
+    int Volume() { return m_width * m_length * m_height; }
 
 private:
-  int m_value;
-}
+    // Will have value of 0 when default constructor is called.
+    // If we didn't zero-init here, default constructor would
+    // leave them uninitialized with garbage values.
+    int m_width{ 0 };
+    int m_length{ 0 };
+    int m_height{ 0 };
+};
 ```
 
 ### 2 - destructor
