@@ -12,6 +12,7 @@ Before downloading, I should say that we don't need any VPN for downloading the 
     + substep 1. go to the Desktop of your computer
     + substep 2. right click and then choose "Nvidia Control panel"
     + substep 3. "Help" -> "System Info" -> "组件" -> "3D settings", then you will see "NVCUDA.DLL" whose product name is "NVIDIA CUDA 10.2.132 driver" for example, in which "10.2" is the CUDA version you are seeking for.
+    + Or without these complicated steps above, you can simply open you cmd or powershell and run the command "nvidia-smi.exe" which will then tells you the CUDA Version.
 + step 3. download the debug version and then unzip it to your preferred directory. For examle, mine is "D:\libtorch-debug-1.7.1\libtorch"
 ### 2 - deploy the libtorch on Visual Studio 2019
 Before deploying libtorch on Visual Studio, I assume that you've installed Visual Studio 2019 on your computer and your OS is Windows 10. The deploying procedure below may work as well on other computer configuration with a little change.
