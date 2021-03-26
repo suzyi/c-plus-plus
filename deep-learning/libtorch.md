@@ -14,7 +14,9 @@ Before downloading, I should say that we don't need any VPN for downloading the 
     + substep 3. "Help" -> "System Info" -> "组件" -> "3D settings", then you will see "NVCUDA.DLL" whose product name is "NVIDIA CUDA 10.2.132 driver" for example, in which "10.2" is the CUDA version you are seeking for.
     + Or without these complicated steps above, you can simply open you cmd or powershell and run the command "nvidia-smi.exe" which will then tells you the CUDA Version.
 + step 3. download the debug version and then unzip it to your preferred directory. For examle, mine is "D:\libtorch-debug-1.7.1\libtorch"
-### 2 - deploy the libtorch on Visual Studio 2019
+### 2 - deploy the libtorch on Visual Studio 2019 without and with cmake
+There are two ways to deploy libtorch on Visual Studio 2019, i.e., without and with the help of cmake.
+#### 2 - 1 without cmake
 Before deploying libtorch on Visual Studio, I assume that you've installed Visual Studio 2019 on your computer and your OS is Windows 10. The deploying procedure below may work as well on other computer configuration with a little change.
 
 1. Add necessary environment path by following steps below:
@@ -72,3 +74,82 @@ int main()
 + step 8. Change the "Configuration" to "Active(Debug)" and "Platform" to "x64".
 + step 9. Click "Local Windows Debugger" or alternatively, click "Build" -> "Build Solution" and then "Debug" -> "Start Debugging". After doing this, if you see right output, then the libtorch is correctly deployed on your machine.
 + step 10. If you close the project "hellolibtorch", just go to the directory where it was created and click "hellotorch.vcxproj", then the project will be opened.
+#### 2 - 2 with cmake
+With the help of cmake, it's easier to deploy libtorch on Visual Studio 2019. Just follow the steps below.
+
+Firstly, make sure you have a folder called "print_tensor" which contains these files within it:
+```
+print_tensor
+— build # build is an empty folder.
+— main.cpp
+— CMakeLists.txt
+```
+Here "main.cpp" contains
+```
+#include <torch/torch.h>
+#include <iostream>
+
+int main() {
+	at::Tensor tensor = torch::rand({ 2, 3 });
+	std::cout << tensor << std::endl;
+}
+```
+and "CMakeLists.txt" contains
+```
+cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
+project(print_tensor)
+
+find_package(Torch REQUIRED)
+
+if(NOT Torch_FOUND)
+    message(FATAL_ERROR "Pytorch Not Found!")
+endif(NOT Torch_FOUND)
+
+message(STATUS "Pytorch status:")
+message(STATUS "    libraries: ${TORCH_LIBRARIES}")
+
+add_executable(print_tensor main.cpp)
+target_link_libraries(print_tensor ${TORCH_LIBRARIES})
+set_property(TARGET print_tensor PROPERTY CXX_STANDARD 11)
+```
+
+Secondly, open your powshell or cmd and then navigate to the empty folder "build" mentioned above. Run this line 
+```
+cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..
+```
+and it will return you some info like
+```
+-- Building for: Visual Studio 16 2019
+-- Selecting Windows SDK version 10.0.18362.0 to target Windows 10.0.18363.
+-- The C compiler identification is MSVC 19.26.28806.0
+-- The CXX compiler identification is MSVC 19.26.28806.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: D:/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: D:/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - not found
+-- Found Threads: TRUE
+-- Found Torch: D:/libtorch-win-debug-1.8.1-cpu/libtorch/lib/torch.lib
+-- Pytorch status:
+--     libraries: torch;torch_library;D:/libtorch-win-debug-1.8.1-cpu/libtorch/lib/c10.lib
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_BUILD_TYPE
+```
+if the code is successfully configured.
+
+Thirdly, go to the directory "print_tensor/build" and open the file "print_tensor.vcxproj" using Visual Studio 2019. Then in the VS2019 interface you will see a "Solution Explorer" and then right click on "print_tensor" to choose "Set as Startup Project".
+
+Finally, set the mode to "Release, x64" and left click "Local Windows Debugger" which will return you the expected output.
+
+You may encounter some errors such as "XXX.dll is missing". In this case, just copy all .dll files from "D:\libtorch-win-debug-1.8.1-cpu\libtorch\lib" to "print_tensor/build/release/" and the try again.
