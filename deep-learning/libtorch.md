@@ -150,6 +150,6 @@ if the code is successfully configured.
 
 Thirdly, go to the directory "print_tensor/build" and open the file "print_tensor.vcxproj" using Visual Studio 2019. Then in the VS2019 interface you will see a "Solution Explorer" and then right click on the bold "print_tensor" to choose "Set as Startup Project".
 
-Finally, set the mode to "Release, x64" and left click "Local Windows Debugger" which will return you the expected output.
+Finally, set the mode to "Release, x64" and left click "Local Windows Debugger" which will return you the expected output. After this, you can find "print_tensor.exe" from the directory "print_tensor/build/Release/".
 
 You may encounter some errors such as "XXX.dll is missing". In this case, just copy all .dll files from "D:\libtorch-win-debug-1.8.1-cpu\libtorch\lib" to "print_tensor/build/release/" and the try again.
