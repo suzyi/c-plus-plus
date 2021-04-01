@@ -32,9 +32,8 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [constructor and destructor](https://github.com/suzyi/cpp/blob/master/basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
 ### cmake
 + [cmake](https://github.com/suzyi/cpp/blob/master/cmake/cmake.md)
-### deep learning
 + [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example.
-+ [linear regression](https://github.com/suzyi/cpp/blob/master/deep-learning/linearRegression.cpp): contain the source cpp file of a toy example of linear regression.
++ [opencv](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md): installation, examples.
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
