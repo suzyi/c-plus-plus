@@ -153,3 +153,5 @@ Thirdly, go to the directory "print_tensor/build" and open the file "print_tenso
 Finally, set the mode to "Release, x64" and left click "Local Windows Debugger" which will return you the expected output. After this, you can find "print_tensor.exe" from the directory "print_tensor/build/Release/".
 
 You may encounter some errors such as "XXX.dll is missing". In this case, just copy all .dll files from "D:\libtorch-win-debug-1.8.1-cpu\libtorch\lib" to "print_tensor/build/release/" and the try again.
+### 3 - libtorch examples
++ [linear regression](https://github.com/suzyi/cpp/blob/master/deep-learning/linearRegression.cpp): contain the source cpp file of a toy example of linear regression.
