@@ -7,6 +7,14 @@ To install cmake on your computer, follow these steps,
 
 ### 2 - deploy libtorch on Visual Studio 2019 using cmake
 Check [here](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md) for an explicit documentation.
+### 2 - 1 intro
+Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (Header.h for example) file simply declares needed classes for the project but doesn't constain any further information. Then the specific definitions and operations of those classes are written in one corresponding .cpp (Hello.cpp for example) file. The remaining .cpp-often named as main.cpp, file acts to show you how to call those classes to complete a certain task.
+
+Here you can find a nice [project](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library) to demonstrate the relationship among Header.h, Hello.cpp and main.cpp, which is summarized as 
++ Header.h ---> Hello.cpp via target_include_directories, i.e., `target_include_directories(project_name PUBLIC ${PROJECT_SOURCE_DIR}/include)`.
++ Hello.cpp --> .exe via target_link_libraries, i.e., `target_link_libraries(exe_name PRIVATE project_name)`.
++ main.cpp ---> .exe via add_executable, i.e., `add_executable(exe_name src/main.cpp)`.
+
 ### common directory variables
 + CMAKE_SOURCE_DIR:
 + CMAKE_CURRENT_SOURCE_DIR:
