@@ -51,7 +51,7 @@ add_library(library_name STATIC
     src/Hello.cpp
 )
 ```
-### 2 - 2 target_include_directories
+#### 2 - 2 target_include_directories
 The following code tells the library (i.e., the library_name.lib, or Hello.cpp) that where its needed header file is placed.
 ```
 target_include_directories(library_name
@@ -66,7 +66,7 @@ add_executable(hello_binary
     src/main.cpp
 )
 ```
-### target_link_libraries
+#### target_link_libraries
 target_link_libraries is used to tell the .exe (also named as binary file or executable file) where the library (equivalent to the header file) is placed at.
 ```
 # link the new hello_library target with the hello_binary target
