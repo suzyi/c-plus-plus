@@ -157,5 +157,7 @@ You may encounter some errors such as "XXX.dll is missing". In this case, just c
 **Just one more paragraph**, `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..` is just one option. Another method is
 + substitute `find_package(Torch REQUIRED)` into `find_package(Torch REQUIRED)` in the "CMakeLists.txt".
 + run `cmake "Visual Studio 16 2019 Win64" ..` in the command line.
+
+To understand why this would work, just check [cmake-basics:how does find_package work?](https://github.com/suzyi/cpp/blob/master/cmake/basics.md).
 ### 3 - libtorch examples
 + [linear regression](https://github.com/suzyi/cpp/blob/master/deep-learning/linearRegression.cpp): contain the source cpp file of a toy example of linear regression.
