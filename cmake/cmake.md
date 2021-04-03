@@ -59,14 +59,14 @@ target_include_directories(library_name
         ${PROJECT_SOURCE_DIR}/include
 )
 ```
-### 2 - 3 add_executable
+#### 2 - 3 add_executable
 As we know, "main.cpp" performs a certain task and shows you how can we call all those defined classes in the header file. To make it runnable, the build-in command add_executable generates a hello_binary from "main.cpp". Then you can find it at "project_name/build/hello_binary" when the OS is Linux and "project_name/build/hello_binary.vcxproj" when OS is Windows 10.
 ```
 add_executable(hello_binary 
     src/main.cpp
 )
 ```
-#### target_link_libraries
+#### 2 - 4 target_link_libraries
 target_link_libraries is used to tell the .exe (also named as binary file or executable file) where the library (equivalent to the header file) is placed at.
 ```
 # link the new hello_library target with the hello_binary target
