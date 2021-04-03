@@ -125,13 +125,14 @@ in the terminal. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/h
 + and FIND_PATH() and FIND_FILE() append /include . 
 + By default it is empty, it is intended to be set by the project.
 ### 4 - how does find_package work?
-+ Do what and return what? Finds and loads settings from an external project. <PackageName>_FOUND will be set to indicate whether the package was found. When the package is found package-specific information is provided through variables and Imported Targets documented by the package itself.
++ Do what and return what? Finds and loads settings from an external project. \<PackageName\>_FOUND will be set to indicate whether the package was found. When the package is found package-specific information is provided through variables and Imported Targets documented by the package itself.
 + two modes? find_package has two modes by which it searches for packages: "Module" mode and "Config" mode. The above signature selects Module mode. If no module is found the command falls back to Config mode, described below. This fall back is disabled if the MODULE option is given.
-    + In Module mode, CMake searches for a file called Find<PackageName>.cmake. The file is first searched in the CMAKE_MODULE_PATH, then among the Find Modules provided by the CMake installation. If the file is found, it is read and processed by CMake. It is responsible for finding the package, checking the version, and producing any needed messages.
+    + In Module mode, CMake searches for a file called Find\<PackageName\>.cmake. The file is first searched in the CMAKE_MODULE_PATH, then among the Find Modules provided by the CMake installation. If the file is found, it is read and processed by CMake. It is responsible for finding the package, checking the version, and producing any needed messages.
     + If the MODULE option is not specified in the above signature, CMake first searches for the package using Module mode. Then, if the package is not found, it searches again using Config mode. A user may set the variable CMAKE_FIND_PACKAGE_PREFER_CONFIG to TRUE to direct CMake first search using Config mode before falling back to Module mode.
 + search where? CMake constructs a set of possible installation prefixes for the package. For example, on Windows 10 these entries are used for searching a configuration file (according to [find_package.html](https://cmake.org/cmake/help/latest/command/find_package.html)),
-    + <prefix>/
-    + <prefix>/(cmake|CMake)/
-    + <prefix>/<name>*/
-    + <prefix>/<name>*/(cmake|CMake)/
-where <prefix> can be specified manually in the command line by the variable "CMAKE_PREFIX_PATH", "cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" .." for searching libtorch, for example.
+    + \<prefix\>/
+    + \<prefix\>/(cmake|CMake)/
+    + \<prefix\>/\<name\>*/
+    + \<prefix\>/\<name\>*/(cmake|CMake)/
+
+In all above cases, \<prefix\> can be specified manually in the command line by the variable "CMAKE_PREFIX_PATH", "cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" .." for searching libtorch, for example.
