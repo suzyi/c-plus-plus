@@ -73,6 +73,8 @@ target_link_libraries( hello_binary
 #### set
 #### find_package
 Nearly all non-trivial projects will have a requirement for including third party libraries, headers, or programs. CMake has support for finding the path to these tools using the find_package() function. This will search for CMake modules in the format "FindXXX.cmake" from the list of folders in CMAKE_MODULE_PATH. On linux the default search path will include /usr/share/cmake/Modules. On my system this includes support for approximately 142 common third party libraries.
+
+As below, find_package tries to find two libraries, i.e., "filesystem" and "system", from the third-party package "Boost 1.46.1".
 ```
 find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
 ```
