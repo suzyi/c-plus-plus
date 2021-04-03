@@ -117,4 +117,8 @@ In the libtorch project "print_tensor", we run the command
 ```
 cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..
 ```
-in the terminal. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/help/v3.0/variable/CMAKE_PREFIX_PATH.html), CMAKE_PREFIX_PATH is a path used for searching by FIND_XXX(), with appropriate suffixes added. To be specific, CMAKE_PREFIX_PATH contains the “base” directories, the FIND_PROGRAM() adds /bin to each of the directories in the path, FIND_LIBRARY() appends /lib to each of the directories, and FIND_PATH() and FIND_FILE() append /include . By default it is empty, it is intended to be set by the project.
+in the terminal. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/help/v3.0/variable/CMAKE_PREFIX_PATH.html), CMAKE_PREFIX_PATH is a path used for searching by FIND_XXX(), with appropriate suffixes added. To be specific, CMAKE_PREFIX_PATH contains the “base” directories, 
++ the FIND_PROGRAM() adds /bin to each of the directories in the path, 
++ FIND_LIBRARY() appends /lib to each of the directories, 
++ and FIND_PATH() and FIND_FILE() append /include . 
++ By default it is empty, it is intended to be set by the project.
