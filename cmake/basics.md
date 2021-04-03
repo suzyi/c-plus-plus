@@ -1,4 +1,5 @@
 # basics
+### 1 - understanding [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library)
 In this section, we use the ttroy50's [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library) to introduce you some basics about cmake, including add_library, target_include_directories, add_executable and target_link_libraries. But with a few modification to the file "CMakeLists.txt" to make it more understandable. We will split "CMakeLists.txt" below into several subsections to understand it.
 ```
 # CMakeLists.txt
@@ -68,3 +69,26 @@ target_link_libraries( hello_binary
         library_name
 )
 ```
+### 2 - understanding [H-third-party-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/H-third-party-library)
+#### set
+#### find_package
+Nearly all non-trivial projects will have a requirement for including third party libraries, headers, or programs. CMake has support for finding the path to these tools using the find_package() function. This will search for CMake modules in the format "FindXXX.cmake" from the list of folders in CMAKE_MODULE_PATH. On linux the default search path will include /usr/share/cmake/Modules. On my system this includes support for approximately 142 common third party libraries.
+```
+find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
+```
+The arguments are:
++ Boost - Name of the library. This is part of used to find the module file FindBoost.cmake.
++ COMPONENTS - The list of libraries to find.
+### Boost_FOUND
+Most included packages will set a variable "XXX_FOUND", which can be used to check if the package is available on the system. In this example the variable is "Boost_FOUND":
+```
+if(Boost_FOUND)
+    message ("boost found")
+    include_directories(${Boost_INCLUDE_DIRS})
+else()
+    message (FATAL_ERROR "Cannot find Boost")
+endif()
+```
+### include_directories and Boost_INCLUDE_DIRS
+After a package is found it will often export variables which can inform the user where to find the library, header, or executable files. Similar to the XXX_FOUND variable, these are package specific and are typically documented at the top of the FindXXX.cmake file. The variables exported in this example include:
++ Boost_INCLUDE_DIRS - The path to the boost header files.
