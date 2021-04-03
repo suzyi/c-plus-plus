@@ -1,13 +1,23 @@
 # cmake
-### 1 - installation
+### 1 - installing cmake on windows 10
 To install cmake on your computer, follow these steps,
 + download a suitable cmake version for your computer from [cmake official website](https://cmake.org/download/). A suitable version here is a binary distribution "Windows x64 Installer".
 + double click the installer after the downloading is complete and then fill in a path where you want cmake be installed and proceed to complete the installation.
 + test if the cmake is successfully installed by opening powershell or cmd and run "cmake -version".
 
-### 2 - deploy libtorch on Visual Studio 2019 using cmake
+### 2 - basic
+#### add_library
+By using the following sample code, you will see the file "library_name.lib" is generated and placed to the directory "project_name/build/Debug/".
+```
+# Generate the static library from the library sources
+add_library(library_name STATIC 
+    src/Hello.cpp
+)
+```
+
+### 3 - deploy libtorch on Visual Studio 2019 using cmake
 Check [here](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md) for an explicit documentation.
-### 2 - 1 intro
+### 3 - 1 intro
 Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (Header.h for example) file simply declares needed classes for the project but doesn't constain any further information. Then the specific definitions and operations of those classes are written in one corresponding .cpp (Hello.cpp for example) file. The remaining .cpp-often named as main.cpp, file acts to show you how to call those classes to complete a certain task.
 
 Here you can find a nice [project](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library) to demonstrate the relationship among Header.h, Hello.cpp and main.cpp, which is summarized as 
