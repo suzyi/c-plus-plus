@@ -92,3 +92,20 @@ endif()
 ### include_directories and Boost_INCLUDE_DIRS
 After a package is found it will often export variables which can inform the user where to find the library, header, or executable files. Similar to the XXX_FOUND variable, these are package specific and are typically documented at the top of the FindXXX.cmake file. The variables exported in this example include:
 + Boost_INCLUDE_DIRS - The path to the boost header files.
+Or more generally, 
++ xxx_INCLUDE_DIRS - A variable pointing to the header files.
++ xxx_LIBRARY - A variable pointing to the library path.
+These can then be added to your target_include_directories and target_link_libraries as:
+```
+# Include the boost headers
+target_include_directories( third_party_include
+    PRIVATE ${Boost_INCLUDE_DIRS}
+)
+
+# link against the boost libraries
+target_link_libraries( third_party_include
+    PRIVATE
+    ${Boost_SYSTEM_LIBRARY}
+    ${Boost_FILESYSTEM_LIBRARY}
+)
+```
