@@ -7,7 +7,8 @@ To install cmake on your computer, follow these steps,
 
 ### 2 - [basics](https://github.com/suzyi/cpp/blob/master/cmake/basics.md)
 ### 3 - deploy libtorch on Visual Studio 2019 using cmake
-Check [here](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md) for an explicit documentation.
++ [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
++ [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md)
 ### 3 - 1 intro
 Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (Header.h for example) file simply declares needed classes for the project but doesn't constain any further information. Then the specific definitions and operations of those classes are written in one corresponding .cpp (Hello.cpp for example) file. The remaining .cpp-often named as main.cpp, file acts to show you how to call those classes to complete a certain task.
 
