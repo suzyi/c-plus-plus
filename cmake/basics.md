@@ -136,3 +136,15 @@ in the terminal. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/h
     + \<prefix\>/\<name\>*/(cmake|CMake)/
 
 In all above cases, \<prefix\> can be specified manually in the command line by the variable "CMAKE_PREFIX_PATH", "cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" .." for searching libtorch, for example.
+
+In practice, one can specify package_DIR for the function find_package by, for exampel,
+```
+find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)
+message(STATUS "config: ${OpenCV_DIR}") # OpenCV_DIR=D:/opencv-4.5.1/opencv/build/x64/vc15/lib
+```
+where "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" is determined manually by checking if there is a file called "OpenCVConfig" within it. Likewise, use 
+```
+find_package (Torch PATHS "D:/libtorch-win-debug-1.8.1-cpu/libtorch" NO_DEFAULT_PATH)
+message(STATUS "config: ${Torch_DIR}") # Torch_DIR=D:/libtorch-win-debug-1.8.1-cpu/libtorch/share/cmake/Torch
+```
+for deploying Libtorch on Visual Studio 2019 because "TorchConfig.cmake" is under "D:\libtorch-win-debug-1.8.1-cpu\libtorch\share\cmake\Torch".
