@@ -105,7 +105,7 @@ if(NOT Torch_FOUND)
     message(FATAL_ERROR "Pytorch Not Found!")
 endif(NOT Torch_FOUND)
 
-message(STATUS "Here is Torch_DIR: ${Torch_DIR}")
+message(STATUS "Here is Torch_DIR: ${Torch_DIR}") # under the Torch_DIR, you can find that there is a file named "TorchConfig.cmake".
 message(STATUS "Pytorch status:")
 message(STATUS "    libraries: ${TORCH_LIBRARIES}")
 
