@@ -3,7 +3,7 @@
 The official installation on Windows 10 can be found in [tutorial_windows_install](https://docs.opencv.org/master/d3/d52/tutorial_windows_install.html#tutorial_windows_install_prebuilt), which can be summarized as
 + Firstly, download the "opencv-for-windows.exe" from [the downloading page](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/).
 + Secondly, click the downloaded "opencv-for-windows.exe" and install it to a proper directory (actually, the installation is just an uncompressing process).
-+ Finally, run a toy example using opencv to check if it works fine, following these steps.
++ Finally, run a toy example using opencv to check if it works fine, following [these steps](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md#2---run-a-toy-opencv-example).
 ### 2 - run a toy opencv example
 Before all, we have to declare that this toy example is run on such a platform
 + OS is Windows 10,
