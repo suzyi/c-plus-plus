@@ -19,7 +19,8 @@ To install cmake on your computer, follow these steps,
   + cmake_minimum_required(VERSION 3.5)
   + project(project_name)
   + add_library()
-  + find_package()
+  + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
+  + set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib"), so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
   + target_include_directories()
   + target_link_libraries()
   + add_executable()
