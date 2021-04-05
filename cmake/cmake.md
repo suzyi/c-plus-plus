@@ -6,6 +6,18 @@ To install cmake on your computer, follow these steps,
 + test if the cmake is successfully installed by opening powershell or cmd and run "cmake -version".
 
 ### 2 - [basics](https://github.com/suzyi/cpp/blob/master/cmake/basics.md)
++ variables
+  + CMAKE_PREFIX_PATH
+  + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
++ functions
+  + cmake_minimum_required(VERSION 3.5)
+  + project(project_name)
+  + add_library()
+  + find_package()
+  + target_include_directories()
+  + target_link_libraries()
+  + add_executable()
+  + message()
 ### 3 - deploy libtorch on Visual Studio 2019 using cmake
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
 + [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md)
