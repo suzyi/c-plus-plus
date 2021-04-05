@@ -9,6 +9,12 @@ To install cmake on your computer, follow these steps,
 + variables
   + CMAKE_PREFIX_PATH
   + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
+  + CMAKE_SOURCE_DIR:
+  + CMAKE_CURRENT_SOURCE_DIR:
+  + PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
+  + CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
+  + CMAKE_CURRENT_BINARY_DIR:
+  + PROJECT_BINARY_DIR:
 + functions
   + cmake_minimum_required(VERSION 3.5)
   + project(project_name)
@@ -28,14 +34,6 @@ Here you can find a nice [project](https://github.com/ttroy50/cmake-examples/tre
 + Header.h ---> Hello.cpp via target_include_directories, i.e., `target_include_directories(project_name PUBLIC ${PROJECT_SOURCE_DIR}/include)`, where Header.h is placed under the directory "${PROJECT_SOURCE_DIR}/include".
 + Hello.cpp --> .exe via target_link_libraries, i.e., `target_link_libraries(exe_name PRIVATE project_name)`.
 + main.cpp ---> .exe via add_executable, i.e., `add_executable(exe_name src/main.cpp)`.
-
-### common directory variables
-+ CMAKE_SOURCE_DIR:
-+ CMAKE_CURRENT_SOURCE_DIR:
-+ PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
-+ CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
-+ CMAKE_CURRENT_BINARY_DIR:
-+ PROJECT_BINARY_DIR:
 ### the most important three components in a CMakeLists.txt
 + header files, which are in "projectname/include/\*.h"
 + source files, which are in "projectname/src/\*.cpp"
