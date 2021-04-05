@@ -38,5 +38,3 @@ Here you can find a nice [project](https://github.com/ttroy50/cmake-examples/tre
 + header files, which are in "projectname/include/\*.h"
 + source files, which are in "projectname/src/\*.cpp"
 + executable, which is in "projectname/build/"
-### useful commands
-+ `message(${PROJECT_SOURCE_DIR})` prints the content the variable `PROJECT_SOURCE_DIR` represents.
