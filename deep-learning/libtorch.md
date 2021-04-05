@@ -105,6 +105,7 @@ if(NOT Torch_FOUND)
     message(FATAL_ERROR "Pytorch Not Found!")
 endif(NOT Torch_FOUND)
 
+message(STATUS "Here is Torch_DIR: ${Torch_DIR}")
 message(STATUS "Pytorch status:")
 message(STATUS "    libraries: ${TORCH_LIBRARIES}")
 
@@ -137,14 +138,12 @@ and it will return you some info like
 -- Looking for pthread.h - not found
 -- Found Threads: TRUE
 -- Found Torch: D:/libtorch-win-debug-1.8.1-cpu/libtorch/lib/torch.lib
+-- Here is Torch_DIR: D:/libtorch-win-debug-1.8.1-cpu/libtorch/share/cmake/Torch
 -- Pytorch status:
---     libraries: torch;torch_library;D:/libtorch-win-debug-1.8.1-cpu/libtorch/lib/c10.lib
+-- here is libraries: torch;torch_library;D:/libtorch-win-debug-1.8.1-cpu/libtorch/lib/c10.lib
 -- Configuring done
 -- Generating done
-CMake Warning:
-  Manually-specified variables were not used by the project:
-
-    CMAKE_BUILD_TYPE
+-- Build files have been written to: F:/cpp20200707/libtorch-examples-20210224/print_tensor_using_cmake20210326/build
 ```
 if the code is successfully configured.
 
