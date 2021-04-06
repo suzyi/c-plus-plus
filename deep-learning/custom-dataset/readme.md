@@ -9,7 +9,7 @@ This project is tested on a platform meeting such requirements:
 + cmake 3.20.0
 ```
 
-Before runing this project, we highly recommend you to read a toy demo []() which will tells you how to deloy a project on a platform with requirements above.
+Before runing this project, we highly recommend you to read a [toy demo](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md#2---2-with-cmake) which will tells you how to deloy a project on a platform with requirements above.
 ### folder tree
 This project is modified from [pytorch-examples-custom-dataset](https://github.com/pytorch/examples/tree/master/cpp/custom-dataset) and organized in a tree structure.
 ```
