@@ -15,37 +15,30 @@ Cases such as `Network& network` and `torch::optim::Optimizer& optimizer` often 
 ```
 template <typename DataLoader>
 void train(
-    Network& network,
-    DataLoader& loader,
-    torch::optim::Optimizer& optimizer,
     size_t epoch,
-    size_t data_size) {
-  size_t index = 0;
-  network->train();
-  float Loss = 0, Acc = 0;
-
-  for (auto& batch : loader) {
-    auto data = batch.data.to(options.device);
-    auto targets = batch.target.to(options.device).view({-1});
-
-    auto output = network->forward(data);
-    auto loss = torch::nll_loss(output, targets);
-    assert(!std::isnan(loss.template item<float>()));
-    auto acc = output.argmax(1).eq(targets).sum();
-
+    Net& model,
+    torch::Device device,
+    DataLoader& data_loader,
+    torch::optim::Optimizer& optimizer,
+    size_t dataset_size) {
+  model.train();
+  size_t batch_idx = 0;
+  for (auto& batch : data_loader) {
+    auto data = batch.data.to(device), targets = batch.target.to(device);
     optimizer.zero_grad();
+    auto output = model.forward(data);
+    auto loss = torch::nll_loss(output, targets);
+    AT_ASSERT(!std::isnan(loss.template item<float>()));
     loss.backward();
     optimizer.step();
 
-    Loss += loss.template item<float>();
-    Acc += acc.template item<float>();
-
-    if (index++ % options.log_interval == 0) {
-      auto end = std::min(data_size, (index + 1) * options.train_batch_size);
-
-      std::cout << "Train Epoch: " << epoch << " " << end << "/" << data_size
-                << "\tLoss: " << Loss / end << "\tAcc: " << Acc / end
-                << std::endl;
+    if (batch_idx++ % kLogInterval == 0) {
+      std::printf(
+          "\rTrain Epoch: %ld [%5ld/%5ld] Loss: %.4f",
+          epoch,
+          batch_idx * batch.data.size(0),
+          dataset_size,
+          loss.template item<float>());
     }
   }
 }
