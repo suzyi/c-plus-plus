@@ -1,12 +1,17 @@
-`&`有3个作用--取地址、引用、按位与运算
-+ 取地址：`int a=10; int *b=&a;`
-+ 引用：`int a=1; int &a_nickname=a;`
-+ 按位与运算：`A = 60; B = 13;` 则`A`、`B`的二进制分别是`A = 0011 1100; B = 0000 1101;` 所以`A & B = 0000 1100;`
-  + 奇偶数判断：`if(A & 1==1) cout<<"A是奇数";`
+`&` works in 3 scenarios -- acquire address, reference, and logical "and".
++ acquire address: `int a=10; int *b=&a;`
++ reference: `int a=1; int &a_nickname=a;`
++ logical "and": `A = 60; B = 13;` then `A`, `B` can be represented as `A = 0011 1100; B = 0000 1101;` which leads to `A & B = 0000 1100;`
+  + as an application, logical "and" can be used to judge if a number is odd or even by `if(A & 1==1) cout<<"A is odd";`
 
-`.` vs `->`
-+ `Listnode head(-1);` then `head.next`.
-+ `Listnode *slow = &head;` then `slow->next;`
+#### when do I use a dot or arrow?
+`.` vs `->`: Here is a hot [discussion](https://stackoverflow.com/questions/4984600/when-do-i-use-a-dot-arrow-or-double-colon-to-refer-to-members-of-a-class-in-c) on stackoverflow.
++ `a.b` is only used if `b` is a member of the object (or reference to an object) `a`.
+  + `Listnode head(-1);` then `head.next`.
++ `a->b` is only used if `a` is a pointer. It is a shorthand for `(*a).b`, the `b` member of the object that `a` points to.
+  + `Listnode *slow = &head;` then `slow->next;`
+  + `torch::optim::Optimizer& optimizer,` and then ``.
+
 ### Sample Code for Pointer and Reference
 The sample code below may help you better understand the c++ pointer.
 ```
