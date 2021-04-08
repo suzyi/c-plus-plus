@@ -14,6 +14,7 @@ To install cmake on your computer, follow these steps,
   + PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
   + CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
   + CMAKE_CURRENT_BINARY_DIR:
+  + MSVC: Set to true when the compiler is some version of Microsoft Visual C++.
   + PROJECT_BINARY_DIR:
 + functions
   + cmake_minimum_required(VERSION 3.5)
