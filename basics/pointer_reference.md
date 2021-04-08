@@ -10,7 +10,47 @@
   + `Listnode head(-1);` then `head.next`.
 + `a->b` is only used if `a` is a pointer. It is a shorthand for `(*a).b`, the `b` member of the object that `a` points to.
   + `Listnode *slow = &head;` then `slow->next;`
-  + `torch::optim::Optimizer& optimizer,` and then ``.
+
+Cases such as `Network& network` and `torch::optim::Optimizer& optimizer` often appear as inputs of a function, for instance,
+```
+template <typename DataLoader>
+void train(
+    Network& network,
+    DataLoader& loader,
+    torch::optim::Optimizer& optimizer,
+    size_t epoch,
+    size_t data_size) {
+  size_t index = 0;
+  network->train();
+  float Loss = 0, Acc = 0;
+
+  for (auto& batch : loader) {
+    auto data = batch.data.to(options.device);
+    auto targets = batch.target.to(options.device).view({-1});
+
+    auto output = network->forward(data);
+    auto loss = torch::nll_loss(output, targets);
+    assert(!std::isnan(loss.template item<float>()));
+    auto acc = output.argmax(1).eq(targets).sum();
+
+    optimizer.zero_grad();
+    loss.backward();
+    optimizer.step();
+
+    Loss += loss.template item<float>();
+    Acc += acc.template item<float>();
+
+    if (index++ % options.log_interval == 0) {
+      auto end = std::min(data_size, (index + 1) * options.train_batch_size);
+
+      std::cout << "Train Epoch: " << epoch << " " << end << "/" << data_size
+                << "\tLoss: " << Loss / end << "\tAcc: " << Acc / end
+                << std::endl;
+    }
+  }
+}
+```
+where such variables act as objects.
 
 ### Sample Code for Pointer and Reference
 The sample code below may help you better understand the c++ pointer.
