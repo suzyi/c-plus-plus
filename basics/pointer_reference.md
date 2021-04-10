@@ -1,6 +1,6 @@
 `&` works in 3 scenarios -- acquire address, reference, and logical "and".
-+ acquire address: `int a=10; int *b=&a;`
-+ reference: `int a=1; int &a_nickname=a;`
++ acquire address: `int a=10; int* b = &a;` `cout << "Address:" << b << endl;` `cout << "value at this address:` << \*b << endl;`
++ reference: `int a = 1; int& a_nickname = a;`
 + logical "and": `A = 60; B = 13;` then `A`, `B` can be represented as `A = 0011 1100; B = 0000 1101;` which leads to `A & B = 0000 1100;`
   + as an application, logical "and" can be used to judge if a number is odd or even by `if(A & 1==1) cout<<"A is odd";`
 
