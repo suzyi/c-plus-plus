@@ -4,6 +4,7 @@
     + `cout<<sizeof(a)/<<sizeof(a[0]);` give 5.
   + `string a[] = {"Jan", "Feb"};`
     + `cout<<a[1];` gives "Feb".
+    + `string s = "data/25.png", token = s.substr(0, s.find("/"))` gives "token = data".
 + bitset
   + `#include <bitset>`
   + `bitset<5> a;`
