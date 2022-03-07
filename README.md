@@ -45,6 +45,13 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 ### projects
 + Sorting Algorithm
 + Logistic Regression
+### tools
++ compiler
+  + A compiler is a tool that helps us compile and run a .cpp file.
+  + The difference between GCC and Visual Studio 2019. 
+    + GCC is a compiler. Instead of using GCC, Visual Studio 2019 (or 2013 etc) has its own comliper.
+  + The difference between QT and Visual Studio 2019. 
+    + Both QT and VS 2019 are developing tools. They can replace each other in some basic functions.
 ### Questions
 I am still confused with the questions below:
 + `vector<int> twoSum(vector<int>& nums, int target)` defines a function named twoSum over the variables nums and target, why do they use `& nums` instead of `nums`?
