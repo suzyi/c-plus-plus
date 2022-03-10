@@ -71,7 +71,7 @@ Next, configure generator/CPU/python interface by editing the file "D:\libcaffe\
 + `set PYTHON_VERSION=2` specifies python 2.7
 + `set BUILD_PYTHON=0` and `set BUILD_PYTHON_LAYER=0` will not support python interface.
 
-In addition, better [download the file "libraries_v120_x64_py27_1.1.0.tar" from this link](https://github.com/willyd/caffe-builder/releases) and place it to the path "C:\Users\jack\.caffe\dependencies\download\libraries_v120_x64_py27_1.1.0.tar". It contains dependency package that caffe requires. Although this step is optional, we highly recommend you to follow this to avoid a bad network connection issue.
+In addition, better download the file "libraries_v120_x64_py27_1.1.0.tar" from this [link](https://github.com/willyd/caffe-builder/releases) and place it to the path `C:\Users\jack\.caffe\dependencies\download\libraries_v120_x64_py27_1.1.0.tar`. It contains dependency package that caffe requires. Although this step is optional, we highly recommend you to follow this to avoid a bad network connection issue.
 
 Finally, build and install caffe by executing
 + `(forCaffe)D:\libcaffe>caffe> scripts\build_win.cmd`
