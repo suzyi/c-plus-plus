@@ -79,10 +79,19 @@ Finally, build and install caffe by executing
 Up to now, Caffe is successfully installed. To verify this, we need run the classification task of MNIST, see the next part.
 
 ### 1-5- Run the classification task of MNIST to check if Caffe works fine
-+ [run this example to check if caffe is successfully installed](https://caffe.berkeleyvision.org/gathered/examples/mnist.html)
-  + build/examples/mnist/convert_mnist_data.bin: No such file or directory. Since Caffe is build on Windows 10, so .bin will not be generated. In stead, use "D:\libcaffe\caffe\build\examples\mnist\Release\convert_mnist_data.exe" to generate data.
-  + build/tools/caffe: No such file or directory. Solution: caffe.exe can be found at "D:\libcaffe\caffe\build\tools\Release\caffe.exe"
++ run this example to check if caffe is successfully installed
+  + `(forCaffe)D:\libcaffe>caffe> bash data\mnist\get_mnist.sh` will download MNIST data. Errors may appear:
+    + No bash found? Install it.
+    + No wget.exe found? Download wget.exe from Internet and then place it to "C:\Windows\System32\" so that it can be called by Anaconda Prompt.
+    + No gunzip found? Search the keyword "anaconda gunzip" and find a tutorial to follow it.
+  + `(forCaffe)D:\libcaffe>caffe> bash examples\mnist\create_mnist.sh`. Possible errors:
+    + `build/examples/mnist/convert_mnist_data.bin: No such file or directory.` Since Caffe is build on Windows 10, so convert_mnist_data.bin will not be generated. In stead, use "D:\libcaffe\caffe\build\examples\mnist\Release\convert_mnist_data.exe" to generate data.
+  + `(forCaffe)D:\libcaffe>caffe> bash examples\mnist\train_lenet.sh`. Possible errors:
+    + `build/tools/caffe: No such file or directory.` Solution: caffe.exe can be found at "D:\libcaffe\caffe\build\tools\Release\caffe.exe"
 
+Up to now, training process will appear on the Prompt Screen if no new error found.
+
+Note: These steps are modified from [here](https://caffe.berkeleyvision.org/gathered/examples/mnist.html). In the original post, command lines are running on a Linux terminal. So we replace "convert_mnist_data.bin" to "convert_mnist_data.exe" to suit our Windows Anaconda Prompt. 
 ## 2- Possible errors encounterd during installation
 + error 1: vs compiler is not found. To solve this error, edit the file "caffe/scripts/build_win.cmd" so that all `WITH_NINJA` are set to `0`, to use VS generator and disable NINJA.
 
