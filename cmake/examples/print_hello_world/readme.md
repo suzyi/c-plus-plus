@@ -1,11 +1,10 @@
 ### print hello world
-In our computer, create an empty folder named "print_hello_world" and then download files from [here](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library). Make sure it has the following structure:
+Create an empty folder named "print_hello_world" and then copy files mentioned bellow from this site. Arange them like the following structure:
 ```
 print_hello_world
 ├── CMakeLists.txt
 ├── include
-│   └── static
-│       └── Hello.h
+│   └── Hello.h
 └── src
     ├── Hello.cpp
     └── main.cpp
@@ -39,3 +38,8 @@ CMake Warning:
 
     CMAKE_BUILD_TYPE
 ```
+After this, open "print_hello_world\build\hello_binary.vcxproj" via Visual Studio 2013. Just like image below,
+<p align="center">
+  <img src="set_as_Startup_project.png" width="550" title="set_as_Startup_project">
+</p>
+Click "Set as Startup Project" and then "generate", the .exe file can be found at "print_hello_world\build\Debug\hello_binary.exe"
