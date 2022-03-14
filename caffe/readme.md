@@ -13,7 +13,7 @@ We follow the steps of BVLC-caffe-windows to build and install Caffe.
 + Install Visual Studio 2013 (vs 2013). [A Chinese tutorial of downloading and installing vs2013](https://jingyan.baidu.com/article/3ea5148999921f52e61bbae0.html) is helpful.
   + In fact, only the VS C/C++ compiler is required (cl.exe). 
   + After vs2013 is installed, you can find the VS C/C++ compiler (cl.exe) in `D:\vs2013\VC\bin\amd64\cl.exe`.
-  + Check if VS 2013 works fine by running a "hello world" project. To do this, just search online for a tutorial and follow it.
+  + Check if VS 2013 works fine by running a "hello world" project by following [this](https://github.com/suzyi/cpp/tree/master/cmake/examples/print_hello_world).
   + If errors `No CMAKE_C_COMPILER could be found. No CMAKE_CXX_COMPILER could be found`, or `-- The C compiler identification is unknown-- The CXX compiler identification is unknown` occurs, make a backup for files "D:\vs2013\VC\bin\rc.exe" and "D:\vs2013\VC\bin\rcdll.dll", repectively. Then try copying "C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe(and rcdll.dll)" to "D:\vs2013\VC\bin\", to replace them. Hopefully, such errors may disappear.
 ### 1-2- Install cmake
 + download a suitable cmake version for your computer from [cmake official website](https://cmake.org/download/). A suitable version here is a binary distribution "Windows x64 Installer".
