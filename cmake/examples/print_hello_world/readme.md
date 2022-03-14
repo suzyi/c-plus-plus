@@ -40,6 +40,6 @@ CMake Warning:
 ```
 After this, open "print_hello_world\build\hello_binary.vcxproj" via Visual Studio 2013. Just like image below,
 <p align="center">
-  <img src="set_as_Startup_project.png" width="550" title="set_as_Startup_project">
+  <img src="set_as_Startup_project.png" width="850" title="set_as_Startup_project">
 </p>
-Click "Set as Startup Project" and then "generate", the .exe file can be found at "print_hello_world\build\Debug\hello_binary.exe"
+Click "Set as Startup Project" and then "generate", the .exe file can be found at "print_hello_world\build\Debug\hello_binary.exe".
