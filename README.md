@@ -36,6 +36,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [template](https://github.com/suzyi/cpp/blob/master/advances/template/readme.md)
 ### third-party package
 + [cmake](https://github.com/suzyi/cpp/blob/master/cmake/cmake.md): install cmake, and deploy libtorch and OpenCV on Visual Studio 2019.
++ [print_hello_world](https://github.com/suzyi/cpp/tree/master/cmake/examples/print_hello_world): use cmake to call VS generator to generate a .exe file.
 + [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example called "print_tensor".
 + [opencv](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md): install opencv, and deploy it on Visual Studio 2019 and then run a simple example called "bgr2gray".
 + [caffe](https://github.com/suzyi/cpp/tree/master/caffe): install caffe, and implement several deep learning tasks.
