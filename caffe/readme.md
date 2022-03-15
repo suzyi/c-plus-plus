@@ -2,6 +2,12 @@
 This article contains
 + the installion of caffe on windows 10,
 + the classification task of MNIST using the installed caffe.
+
+After installation, source files (.cpp, .h) will be converted to executable files, such as
++ caffe.exe
++ convert_mnist_data.exe
+
+and so on.
 ## 1 - Installation
 There are many posts online sharing the installation of Caffe on Windows 10. Among them, three posts are mostly mentioned, i.e., 
 + [BVLC-caffe-windows](https://github.com/BVLC/caffe/tree/windows/). This one is the official document teaching people to install caffe. So we will follow it to complete our installation.
