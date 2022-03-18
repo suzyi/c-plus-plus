@@ -158,10 +158,14 @@ target_link_libraries( third_party_include
     ${Boost_FILESYSTEM_LIBRARY}
 )
 ```
-### 3 - variables and functions
+### 3 - command line, variables and functions
++ command line
+  + `cmake ..`
+    + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
+  + `cmake --build . --config Release` or `Debug`
 + variables
   + CMAKE_GENERATOR
-    + `set CMAKE_GENERATOR=Visual Studio 12 2013 Win64`, `set CMAKE_GENERATOR=Visual Studio 14 2015 Win64`, or ninja?
+    + `set CMAKE_GENERATOR=Visual Studio 12 2013 Win64`, `set CMAKE_GENERATOR=Visual Studio 14 2015 Win64`, or `set CMAKE_GENERATOR=Ninja`
   + CMAKE_PREFIX_PATH
   + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
   + CMAKE_SOURCE_DIR:
