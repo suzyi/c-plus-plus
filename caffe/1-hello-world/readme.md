@@ -63,3 +63,22 @@ int main(int argc, char** argv) {
 	return 0;
 }
 ```
+### possible errors
+Error 1:
+```
+Could not find a package configuration file provided by "gflags" with any
+  of the following names:
+
+    gflagsConfig.cmake
+    gflags-config.cmake
+
+  Add the installation prefix of "gflags" to CMAKE_PREFIX_PATH or set
+  "gflags_DIR" to a directory containing one of the above files.  If "gflags"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+```
+Solution: Add this line 
+```
+set(CMAKE_PREFIX_PATH "C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries")
+```
+to the file "D:\libcaffe\caffe\build\CaffeConfig.cmake"
