@@ -82,3 +82,27 @@ Solution: Add this line
 set(CMAKE_PREFIX_PATH "C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries")
 ```
 to the file "D:\libcaffe\caffe\build\CaffeConfig.cmake"
+
+Error 2:
+```
+Could not find a configuration file for package "glog" that is compatible
+  with requested version "".
+
+  The following configuration files were considered but not accepted:
+
+    C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib/cmake/glog/glog-config.cmake, version: 0.3.4 (64bit)
+```
+Solution: There are two files named "glog-config.cmake" and "glog-config-version" in the path "C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\lib\cmake\glog". Just their names will help remove the error described above.
+
+Error 3:
+```
+D:\libcaffe\caffe\include\caffe/common.hpp(20): fatal error C1083: Cannot open include file: 'caffe/export.hpp': No suc
+h file or directory [C:\Users\me\Downloads\caffe_example\ex1_hellocaffe\build\hellocaffe.vcxproj]
+```
+Solution: Add this line `include_directories(${Caffe_DIR}/${Caffe_INCLUDE_DIRS})` to `ex1_hellocaffe\CMakeLists.txt`.
+
+Error 4:
+```
+LINK : fatal error LNK1104: cannot open file 'D:\libcaffe\caffe\build\lib\Debug\caffe-d.lib' [C:\Users\me\Downloads\caffe_example\ex1_hellocaffe\build\hellocaffe.vcxproj]
+```
+Solution:
