@@ -166,38 +166,38 @@ target_link_libraries( third_party_include
     + `cmake --build . --config Release` or `Debug`
     + `cmake --build . --target runtest --config Debug`
 + variables
+  + CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
+  + CMAKE_CURRENT_BINARY_DIR:
+  + CMAKE_CURRENT_SOURCE_DIR:
   + CMAKE_GENERATOR
     + `set CMAKE_GENERATOR=Visual Studio 12 2013 Win64`, `set CMAKE_GENERATOR=Visual Studio 14 2015 Win64`, or `set CMAKE_GENERATOR=Ninja`
   + CMAKE_PREFIX_PATH
-  + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
+    + In the libtorch project "print_tensor", we run the command
+`cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..` to tell cmake where TorchConfig.cmake can be found. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/help/v3.0/variable/CMAKE_PREFIX_PATH.html), CMAKE_PREFIX_PATH is a path used for searching by FIND_XXX(), with appropriate suffixes added. To be specific, CMAKE_PREFIX_PATH contains the “base” directories, 
+      + the FIND_PROGRAM() adds /bin to each of the directories in the path, 
+      + FIND_LIBRARY() appends /lib to each of the directories, 
+      + and FIND_PATH() and FIND_FILE() append /include . 
+      + By default it is empty, it is intended to be set by the project.
+  
   + CMAKE_SOURCE_DIR:
-  + CMAKE_CURRENT_SOURCE_DIR:
-  + PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
-  + CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
-  + CMAKE_CURRENT_BINARY_DIR:
-  + MSVC: Set to true when the compiler is some version of Microsoft Visual C++.
+  + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
+  + ThirdPartyPackage_FOUND
   + PROJECT_BINARY_DIR:
+  + PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
+  + MSVC: Set to true when the compiler is some version of Microsoft Visual C++.
+  
 
 + functions
-  + cmake_minimum_required(VERSION 3.5)
-  + project(project_name)
+  + add_executable()
   + add_library()
+  + cmake_minimum_required(VERSION 3.5)
   + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
+  + `include_directories(${Caffe_DIR}/include)`
+  + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
+  + project(project_name)
   + set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib"), so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
   + target_include_directories()
   + target_link_libraries()
-  + add_executable()
-  + message()
-#### CMAKE_PREFIX_PATH
-In the libtorch project "print_tensor", we run the command
-```
-cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..
-```
-in the terminal. According to [CMAKE_PREFIX_PATH.html](https://cmake.org/cmake/help/v3.0/variable/CMAKE_PREFIX_PATH.html), CMAKE_PREFIX_PATH is a path used for searching by FIND_XXX(), with appropriate suffixes added. To be specific, CMAKE_PREFIX_PATH contains the “base” directories, 
-+ the FIND_PROGRAM() adds /bin to each of the directories in the path, 
-+ FIND_LIBRARY() appends /lib to each of the directories, 
-+ and FIND_PATH() and FIND_FILE() append /include . 
-+ By default it is empty, it is intended to be set by the project.
 ### 4 - how does find_package work?
 + Do what and return what? Finds and loads settings from an external project. \<PackageName\>_FOUND will be set to indicate whether the package was found. When the package is found package-specific information is provided through variables and Imported Targets documented by the package itself.
 + two modes? find_package has two modes by which it searches for packages: "Module" mode and "Config" mode. The above signature selects Module mode. If no module is found the command falls back to Config mode, described below. This fall back is disabled if the MODULE option is given.
