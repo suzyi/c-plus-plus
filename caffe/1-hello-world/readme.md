@@ -105,4 +105,4 @@ Error 4:
 ```
 LINK : fatal error LNK1104: cannot open file 'D:\libcaffe\caffe\build\lib\Debug\caffe-d.lib' [C:\Users\me\Downloads\caffe_example\ex1_hellocaffe\build\hellocaffe.vcxproj]
 ```
-Solution: Maybe the project Hellocaffe think that my caffe is build with a Debug mode. But it's Release in fact.
+Solution: Maybe the project Hellocaffe think that my caffe is build with a Debug mode. But it's Release in fact. Open the file "ex1_hellocaffe\build\hellocaffe.vcxproj" via Visual Studio Code and then search the keyword "caffe-d.lib" within it.
