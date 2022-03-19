@@ -162,7 +162,9 @@ target_link_libraries( third_party_include
 + command line
   + `cmake ..`
     + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
-  + `cmake --build . --config Release` or `Debug`
+  + `cmake --build .`
+    + `cmake --build . --config Release` or `Debug`
+    + `cmake --build . --target runtest --config Debug`
 + variables
   + CMAKE_GENERATOR
     + `set CMAKE_GENERATOR=Visual Studio 12 2013 Win64`, `set CMAKE_GENERATOR=Visual Studio 14 2015 Win64`, or `set CMAKE_GENERATOR=Ninja`
