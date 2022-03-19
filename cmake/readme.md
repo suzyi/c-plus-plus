@@ -160,7 +160,7 @@ target_link_libraries( third_party_include
 ```
 ### 3 - command line, variables and functions
 + command line
-  + `cmake ..`
+  + `cmake -G "Your Generator" path/to/your/source`
     + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
     + `cmake -G "Visual Studio 16 2019 Win64" ..`
     + `cmake -G Ninja ..`
