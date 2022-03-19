@@ -161,7 +161,9 @@ target_link_libraries( third_party_include
 ### 3 - command line, variables and functions
 + command line
   + `cmake -G "Your Generator" path/to/your/source`
-    + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
+  + `cmake .. -C C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake`  
+  + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
+    + `cmake -DCMAKE_PREFIX_PATH=C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries ..`
     + `cmake -G "Visual Studio 16 2019 Win64" ..`
     + `cmake -G Ninja ..`
   + `cmake --build .`
@@ -195,6 +197,8 @@ target_link_libraries( third_party_include
   + cmake_minimum_required(VERSION 3.5)
   + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
   + `include_directories(${Caffe_DIR}/include)`
+  + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
+    + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use include_directories() to tell where .lib are stored.
   + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
   + project(project_name)
   + set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib"), so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
