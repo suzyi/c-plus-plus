@@ -196,6 +196,14 @@ target_link_libraries( third_party_include
   + add_library()
   + cmake_minimum_required(VERSION 3.5)
   + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
+    + `find_package(glog REQUIRED NO_MODULE)`, where `NO_MODULE` option specifies to find in the Config mode.
+    + `PackageName_FOUND` (e.g., `Caffe_FOUND`) will be set to indicate whether the package was found. When the package is found, some other variables (e.g., `Caffe_INCLUDE_DIRS`, `Caffe_DEFINITIONS` and so on) may be set by the package itself.
+    + two modes
+      + In Module mode, CMake searches for a file called `Find\<PackageName\>.cmake`. The file is first searched in the `CMAKE_MODULE_PATH`, then secondly among the Find Modules provided by the CMake installation. If the file is found, CMake will execute the .cmake file.
+      + If the package is not found under Module mode, cmake searches again using Config mode. A user may set the variable `CMAKE_FIND_PACKAGE_PREFER_CONFIG` to `TRUE` to direct CMake first search using Config mode before falling back to Module mode. Or alternatively, `find_package(glog REQUIRED NO_MODULE)`.
+        + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..`
+        + `find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)` and then use `cmake "Visual Studio 16 2019 Win64" ..`
+        + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")` and then `find_package(OpenCV REQUIRED)`
   + `include_directories(${Caffe_DIR}/include)`
   + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
     + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use include_directories() to tell where .lib are stored.
@@ -204,40 +212,8 @@ target_link_libraries( third_party_include
   + set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib"), so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
   + target_include_directories()
   + target_link_libraries()
-### 4 - how does find_package work?
-+ Do what and return what? Finds and loads settings from an external project. \<PackageName\>_FOUND will be set to indicate whether the package was found. When the package is found package-specific information is provided through variables and Imported Targets documented by the package itself.
-+ two modes? find_package has two modes by which it searches for packages: "Module" mode and "Config" mode. The above signature selects Module mode. If no module is found the command falls back to Config mode, described below. This fall back is disabled if the MODULE option is given.
-    + In Module mode, CMake searches for a file called Find\<PackageName\>.cmake. The file is first searched in the CMAKE_MODULE_PATH, then among the Find Modules provided by the CMake installation. If the file is found, it is read and processed by CMake. It is responsible for finding the package, checking the version, and producing any needed messages.
-    + If the MODULE option is not specified in the above signature, CMake first searches for the package using Module mode. Then, if the package is not found, it searches again using Config mode. A user may set the variable CMAKE_FIND_PACKAGE_PREFER_CONFIG to TRUE to direct CMake first search using Config mode before falling back to Module mode.
-+ search where? CMake constructs a set of possible installation prefixes for the package. For example, on Windows 10 these entries are used for searching a configuration file (according to [find_package.html](https://cmake.org/cmake/help/latest/command/find_package.html)),
-    + \<prefix\>/
-    + \<prefix\>/(cmake|CMake)/
-    + \<prefix\>/\<name\>*/
-    + \<prefix\>/\<name\>*/(cmake|CMake)/
+    + `target_link_libraries(hellocaffe ${Caffe_LIBRARIES})`, where `hellocaffe` must have been created by a command such as `add_executable(hellocaffe main.cpp)`.
 
-In all above cases, \<prefix\> (namely, package_DIR) can be specified manually in three ways.
-
-Method 1: Add these lines
-```
-find_package(OpenCV REQUIRED)
-message(STATUS "Here is OpenCV_DIR: ${OpenCV_DIR}")
-```
-to CMakeLists.txt and then use `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..` in the command line.
-
-Method 2: Add these lines 
-```
-find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)
-message(STATUS "Here is OpenCV_DIR: ${OpenCV_DIR}")
-```
-to CMakeLists.txt and then use `cmake "Visual Studio 16 2019 Win64" ..` in the command line.
-
-Method 3: Add these lines 
-```
-set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")
-find_package(OpenCV REQUIRED)
-message(STATUS "Here is OpenCV_DIR: ${OpenCV_DIR}")
-```
-to CMakeLists.txt and then use `cmake "Visual Studio 16 2019 Win64" ..` in the command line.
 ### 3 - deploy libtorch on Visual Studio 2019 using cmake
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
 + [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md)
