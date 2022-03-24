@@ -204,7 +204,8 @@ target_link_libraries( third_party_include
         + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..`
         + `find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)` and then use `cmake "Visual Studio 16 2019 Win64" ..`
         + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")` and then `find_package(OpenCV REQUIRED)`
-  + `include_directories(${Caffe_DIR}/include)`
+  + `include_directories(${Caffe_DIR}/include)` or `include_directories("D:/libcaffe/caffe-windows/include")`
+    + "caffe.hpp", "blob.hpp" and so on can be found in the path "D:/libcaffe/caffe-windows/include".
   + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
     + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use include_directories() to tell where .lib are stored.
   + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
