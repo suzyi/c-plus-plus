@@ -21,6 +21,7 @@ We follow the steps of BVLC-caffe-windows to build and install Caffe.
   + After vs2013 is installed, you can find the VS C/C++ compiler (cl.exe) in `D:\vs2013\VC\bin\amd64\cl.exe`.
   + Check if VS 2013 works fine by running a "hello world" project by following [this](https://github.com/suzyi/cpp/tree/master/cmake/examples/print_hello_world).
   + If errors `No CMAKE_C_COMPILER could be found. No CMAKE_CXX_COMPILER could be found`, or `-- The C compiler identification is unknown-- The CXX compiler identification is unknown` occurs, make a backup for files "D:\vs2013\VC\bin\rc.exe" and "D:\vs2013\VC\bin\rcdll.dll", repectively. Then try copying "C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe(and rcdll.dll)" to "D:\vs2013\VC\bin\", to replace them. Hopefully, such errors may disappear.
+  + If Visual Studio 2015 community is installed and you want to uninstall it completely from your computer, just open a terminal and run the command `vs_community.exe /Uninstall /Force`
 ### 1-2- Install cmake
 + download a suitable cmake version for your computer from [cmake official website](https://cmake.org/download/). A suitable version here is a binary distribution "Windows x64 Installer".
 + double click the installer after the downloading is complete and then fill in a path where you want cmake be installed and proceed to complete the installation.
