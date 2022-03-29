@@ -8,3 +8,6 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
 <p align="center">
   <img src="imgs/how_to_run_examples.png" width="550" title="how_to_run_examples.png">
 </p>
+### 3- Further examples
++ Classification
++ Segmentation
