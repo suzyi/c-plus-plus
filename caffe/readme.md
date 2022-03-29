@@ -6,5 +6,5 @@ Examples below are copied and modified from this repository [koosyong/caffestudy
 
 When compiling these examples, I suffered from error messages such as "glog.cmake" is missing. To alleviate this, an alternative way is putting these files and aranging them like below. Then rebuild the caffe project from scratch.
 <p align="center">
-  <img src="how_to_run_examples.png" width="550" title="how_to_run_examples.png">
+  <img src="imgs/how_to_run_examples.png" width="550" title="how_to_run_examples.png">
 </p>
