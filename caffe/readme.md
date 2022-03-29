@@ -16,11 +16,15 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
 + Segmentation
 
 ### 4 - Containers
-+ `Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);`
++ `Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);` Binary long object
   + `blob->asum_data()`-absolute sum
   + `blob->channels()`
   + `blob->count()`-`batchsize*channels*height*width`
   + `blob->cpu_data()`
+  + `blob->gpu_data()`
   + `blob->height()`
+  + `blob->mutable_cpu_data()`
   + `blob->num()`-batchsize
+  + `blob->Reshape(50, 40, 30, 20)`
+  + `blob->sumsq_data()`
   + `blob->width()`
