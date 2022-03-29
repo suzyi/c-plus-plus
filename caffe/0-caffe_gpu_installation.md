@@ -8,7 +8,7 @@ Firstly, open an Anaconda Prompt and check current cuda version by
 (base)D:\libcaffe> nvidia-smi
 ```
 <p align="center">
-  <img src="check_cuda_the1st_time.png" width="550" title="check_cuda_the1st_time">
+  <img src="imgs/check_cuda_the1st_time.png" width="550" title="check_cuda_the1st_time">
 </p>
 The result shows I've already had CUDA 11.3 installed on computer, which doesn't meet caffe's requirement. So we have to change it.
 
@@ -16,5 +16,5 @@ The result shows I've already had CUDA 11.3 installed on computer, which doesn't
   + Download cuDNN from [here](https://developer.nvidia.com/rdp/cudnn-archive)
   + Change the version of CUDA from 11.1 back to 8.0?
 <p align="center">
-  <img src="cuda_cuDNN_error.png" width="550" title="cuda_cuDNN_error">
+  <img src="imgs/cuda_cuDNN_error.png" width="550" title="cuda_cuDNN_error">
 </p>
