@@ -194,6 +194,10 @@ target_link_libraries( third_party_include
 + functions
   + add_executable()
   + add_library()
+  + `add_subdirectory(source_dir)`. Adds a subdirectory to the build. The source_dir specifies the directory in which the source CMakeLists.txt and code files are located.
+    + `add_subdirectory(src/caffe)`
+    + `add_subdirectory(tools)`
+    + `add_subdirectory(examples)`
   + cmake_minimum_required(VERSION 3.5)
   + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
     + `find_package(glog REQUIRED NO_MODULE)`, where `NO_MODULE` option specifies to find in the Config mode.
@@ -204,6 +208,7 @@ target_link_libraries( third_party_include
         + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..`
         + `find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)` and then use `cmake "Visual Studio 16 2019 Win64" ..`
         + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")` and then `find_package(OpenCV REQUIRED)`
+  + `include(cmake/Utils.cmake)`
   + `include_directories(${Caffe_DIR}/include)` or `include_directories("D:/libcaffe/caffe-windows/include")`
     + "caffe.hpp", "blob.hpp" and so on can be found in the path "D:/libcaffe/caffe-windows/include".
   + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
