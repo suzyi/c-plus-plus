@@ -56,7 +56,7 @@ After Anaconda is installed, open an Anaconda Propt to install python 2.7 by fol
 ```
 Expected results are
 <p align="center">
-  <img src="check_before_installation.png" width="550" title="check_before_installation">
+  <img src="imgs/check_before_installation.png" width="550" title="check_before_installation">
 </p>
 
 ### 1-4- Install Caffe
@@ -110,6 +110,3 @@ set(CMAKE_CXX_COMPILER "D:/vs2013/VC/bin/amd64/cl.exe")
 + error 3: Since `%VS120COMNTOOLS%` points to `'D:\vs2013\Common7\Tools\'`, so `call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" amd64` equals `call "D:\vs2013\VC\vcvarsall.bat" amd64`
 + error 4: VS 2013, version 12.0, MSC_VER=1800. If VS 2015 is used, then version 14.0
 + error 5: `cmake -G "Visual Studio 12 2013 Win64" -C D:\libcaffe\caffe-builder\build_v120_x64\libraries\caffe-build-config.cmake ..`, where `CMAKE_GENERATOR=Visual Studio 12 2013 Win64`
-### 3- Further examples
-+ Classification
-+ Segmentation
