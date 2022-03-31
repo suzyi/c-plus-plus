@@ -25,6 +25,7 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
   + `blob->height()`
   + `blob->mutable_cpu_data()`
   + `blob->num()`-batchsize
+  + `blob->offset(100,0,0,0)`
   + `blob->Reshape(50, 40, 30, 20)`
   + `blob->sumsq_data()`
   + `blob->width()`
