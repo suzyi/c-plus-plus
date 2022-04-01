@@ -29,3 +29,5 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
   + `blob->Reshape(50, 40, 30, 20)`
   + `blob->sumsq_data()`
   + `blob->width()`
++ `caffe::InnerProductLayer< Dtype > Class Template Reference`
+  + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
