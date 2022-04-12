@@ -13,8 +13,11 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + https://www.tutorialspoint.com/compile_cpp_online.php
 + nowcoder OJ input-output exercises: https://ac.nowcoder.com/acm/contest/320#question
 ### basics
++ `const int a = 7;` tells the compiler that `a` is invariant. After that, `a = 8;` will lead to an error.
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector, pair.
++ `#ifndef CAFFE_BLOB_HPP_, #define CAFFE_BLOB_HPP_, #endif  // CAFFE_BLOB_HPP_`. This can help avoid error caused by including the same header file.
++ `inline int Max (int a, int b) {if(a >b) return a;}`. `Inline` means inserting this piece of code to current position to improve efficiency, not calling it.
 + [loop and if and switch](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if, switch, break, auto;
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *
   + [LinkedList.cpp](https://github.com/suzyi/cpp/blob/master/basics/LinkedList.cpp)
