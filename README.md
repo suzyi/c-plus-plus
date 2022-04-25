@@ -13,9 +13,11 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + https://www.tutorialspoint.com/compile_cpp_online.php
 + nowcoder OJ input-output exercises: https://ac.nowcoder.com/acm/contest/320#question
 ### basics
++ `int a = 2147483647; // 0111 1111 1111 1111 1111 1111 1111 1111; int b = a << 1;     // 1111 1111 1111 1111 1111 1111 1111 1110` left shit operation
 + `const int a = 7;` tells the compiler that `a` is invariant. After that, `a = 8;` will lead to an error.
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector, pair.
++ `#if defined(USE_LEVELDB) && defined(USE_LMDB) #include <leveldb/write_batch.h> #include <lmdb.h> #endif`
 + `#ifndef CAFFE_BLOB_HPP_, #define CAFFE_BLOB_HPP_, #endif  // CAFFE_BLOB_HPP_`. This can help avoid error caused by including the same header file.
 + `inline int Max (int a, int b) {if(a >b) return a;}`. `Inline` means inserting this piece of code to current position to improve efficiency, not calling it.
 + [loop and if and switch](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if, switch, break, auto;
@@ -25,6 +27,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + comment and uncomment: ctrl+/
 + `i++` vs `++i`: If `int i=0; string s="abc";`, then `cout<<s[i++]<<", i="<<i<<endl;` outputs `a, i=1` and `i=0; cout<<s[++i]<<", i="<<i<<endl;` outputs `b, i=1`.
 + [struct and class](https://github.com/suzyi/cpp/blob/master/basics/struct_class.md).
++ `typedef double Dtype; Dtype str_1 = 0.7;`
 + [common functions](https://github.com/suzyi/cpp/blob/master/basics/common_functions.md): sort, accumulate
 + [data types](https://github.com/suzyi/cpp/blob/master/basics/data_types.md): int, bool, string, char, auto
 + file types (Generally, a c++ project usually contains a .h file and two .cpp files where .h makes a simple definition for all classes, one .cpp makes specific definition and operations for all those class, and the remaining .cpp is typically named as main.cpp to execute a certain task by calling those defined classes.)

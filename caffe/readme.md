@@ -31,3 +31,7 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
   + `blob->width()`
 + `caffe::InnerProductLayer< Dtype > Class Template Reference`
   + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
+### 5 - exe
++ `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb`
++ `build\tools\Release\compute_image_mean.exe data\re\img_train_lmdb data\mean.binaryproto`
++ `build\tools\Release\caffe.exe train -solver=data\re\solver.prototxt`
