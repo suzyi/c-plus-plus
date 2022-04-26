@@ -215,10 +215,14 @@ target_link_libraries( third_party_include
     + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use include_directories() to tell where .lib are stored.
   + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
   + project(project_name)
-  + set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib"), so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
+  + set
+    + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")`, so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
+    + `set(var a b c d)` will result in a list `"a;b;c;d"`. `set (var "a b c d")` returns a single variable `"a c c d"`.
   + target_include_directories()
   + target_link_libraries()
     + `target_link_libraries(hellocaffe ${Caffe_LIBRARIES})`, where `hellocaffe` must have been created by a command such as `add_executable(hellocaffe main.cpp)`.
+    + `target_link_libraries(bgr2gray ${OpenCV_LIBRARIES})`, where `bgr2gray` is created via `add_executable(bgr2gray main.cpp)`.
+      + `message("OpenCV_LIBRARIES: ${OpenCV_LIBRARIES}")` gives `OpenCV_LIBRARIES: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_gapi;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_videoio;opencv_world`.
 
 ### 3 - deploy libtorch on Visual Studio 2019 using cmake
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)

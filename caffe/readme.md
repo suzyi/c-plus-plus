@@ -35,3 +35,18 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
 + `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb`
 + `build\tools\Release\compute_image_mean.exe data\re\img_train_lmdb data\mean.binaryproto`
 + `build\tools\Release\caffe.exe train -solver=data\re\solver.prototxt`
+
+### 6 - folder tree
++ data\
+  + Scritps used to download dataset needed.
++ examples\
+  + Examples used to show usage of caffe.
++ include\
+  + All header files.
++ matlab\
++ python\
++ tools\
+  + caffe.cpp will be compiled caffe.exe, which allows training and infering in the terminal.
+  + Data processing toolts.
++ scripts\
++ src\
