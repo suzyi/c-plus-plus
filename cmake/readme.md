@@ -67,22 +67,8 @@ target_include_directories(library_name
         ${PROJECT_SOURCE_DIR}/include
 )
 
-
-############################################################
-# Create an executable
-############################################################
-
-# Add an executable with the above sources
-add_executable(hello_binary 
-    src/main.cpp
-)
-
-# link the new hello_library target with the hello_binary target
-target_link_libraries( hello_binary
-    PRIVATE 
-        library_name
-)
 ```
+
 #### add_library
 By using the following sample code, you will see the file "library_name.lib" is generated and placed to the directory "project_name/build/Debug/".
 ```
@@ -97,22 +83,6 @@ The following code tells the library (i.e., the library_name.lib, or Hello.cpp) 
 target_include_directories(library_name
     PUBLIC 
         ${PROJECT_SOURCE_DIR}/include
-)
-```
-#### add_executable
-As we know, "main.cpp" performs a certain task and shows you how can we call all those defined classes in the header file. To make it runnable, the build-in command add_executable generates a hello_binary from "main.cpp". Then you can find it at "project_name/build/hello_binary" when the OS is Linux and "project_name/build/hello_binary.vcxproj" when OS is Windows 10.
-```
-add_executable(hello_binary 
-    src/main.cpp
-)
-```
-#### target_link_libraries
-target_link_libraries is used to tell the .exe (also named as binary file or executable file) where the library (equivalent to the header file) is placed at.
-```
-# link the new hello_library target with the hello_binary target
-target_link_libraries( hello_binary
-    PRIVATE 
-        library_name
 )
 ```
 ### 2 - understanding [H-third-party-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/H-third-party-library)
@@ -196,6 +166,7 @@ target_link_libraries( third_party_include
 
 + functions
   + add_executable()
+    + `add_executable(gflags_exe src/main.cpp)`
   + add_library()
   + `add_subdirectory(source_dir)`. Adds a subdirectory to the build. The source_dir specifies the directory in which the source CMakeLists.txt and code files are located.
     + `add_subdirectory(src/caffe)`
@@ -230,6 +201,7 @@ target_link_libraries( third_party_include
     + `target_link_libraries(hellocaffe ${Caffe_LIBRARIES})`, where `hellocaffe` must have been created by a command such as `add_executable(hellocaffe main.cpp)`.
     + `target_link_libraries(bgr2gray ${OpenCV_LIBRARIES})`, where `bgr2gray` is created via `add_executable(bgr2gray main.cpp)`.
       + `message("OpenCV_LIBRARIES: ${OpenCV_LIBRARIES}")` gives `OpenCV_LIBRARIES: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_gapi;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_videoio;opencv_world`.
+    + `target_link_libraries(gflags_example_exe gflagsd.lib)`
 
 ### 3 - deploy libtorch on Visual Studio 2019 using cmake
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
