@@ -1,134 +1,4 @@
-# basics
-### loop and file operation
-```
-cmake_minimum_required(VERSION 3.2)
-message("PROJECT_SOURCE_DIR: ${PROJECT_SOURCE_DIR}")
-message("PROJECT_BINARY_DIR: ${PROJECT_BINARY_DIR}")
-if(MSVC)
-  message("MSVC found")
-endif()
-
-file(GLOB_RECURSE examples_srcs "images/*.png")
-
-foreach(source_file ${examples_srcs})
-  # get file name (variable, filename, mode), NAME_WE--name without extension
-  get_filename_component(name ${source_file} NAME_WE)
-
-  # get folder name
-  get_filename_component(path ${source_file} PATH)
-  get_filename_component(folder ${path} NAME_WE)
-  message("---------")
-  message("source_file: ${source_file}")
-  message("name: ${name}")
-  message("path: ${path}")
-  message("folder: ${folder}")
-endforeach()
-```
-results in 
-```
-PROJECT_SOURCE_DIR: C:/Users/me/Downloads/convert_mnist
-PROJECT_BINARY_DIR: C:/Users/me/Downloads/convert_mnist/build
-MSVC found
----------
-source_file: C:/Users/me/Downloads/convert_mnist/images/89.png
-name: 89
-path: C:/Users/me/Downloads/convert_mnist/images
-folder: images
----------
-source_file: C:/Users/me/Downloads/convert_mnist/images/91.png
-name: 91
-path: C:/Users/me/Downloads/convert_mnist/images
-folder: images
----------
-source_file: C:/Users/me/Downloads/convert_mnist/images/97.png
-name: 97
-path: C:/Users/me/Downloads/convert_mnist/images
-folder: images
-```
-### 1 - understanding [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library)
-In this section, we use the ttroy50's [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library) to introduce you some basics about cmake, including add_library, target_include_directories, add_executable and target_link_libraries. But with a few modification to the file "CMakeLists.txt" to make it more understandable. We will split "CMakeLists.txt" below into several subsections to understand it.
-```
-# CMakeLists.txt
-cmake_minimum_required(VERSION 3.5)
-
-project(project_name)
-
-############################################################
-# Create a library
-############################################################
-
-#Generate the static library from the library sources
-add_library(library_name STATIC 
-    src/Hello.cpp
-)
-
-target_include_directories(library_name
-    PUBLIC 
-        ${PROJECT_SOURCE_DIR}/include
-)
-
-```
-
-#### add_library
-By using the following sample code, you will see the file "library_name.lib" is generated and placed to the directory "project_name/build/Debug/".
-```
-# Generate the static library from the library sources
-add_library(library_name STATIC 
-    src/Hello.cpp
-)
-```
-#### target_include_directories
-The following code tells the library (i.e., the library_name.lib, or Hello.cpp) that where its needed header file is placed.
-```
-target_include_directories(library_name
-    PUBLIC 
-        ${PROJECT_SOURCE_DIR}/include
-)
-```
-### 2 - understanding [H-third-party-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/H-third-party-library)
-#### find_package
-find_package tries to find an external project, and load its settings. <PackageName>_FOUND will be set to indicate whether the package was found.
-
-This will search for CMake modules in the format "FindXXX.cmake" from the list of folders in CMAKE_MODULE_PATH. On linux the default search path will include /usr/share/cmake/Modules. On my system this includes support for approximately 142 common third party libraries.
-
-As below, find_package tries to find two libraries, i.e., "filesystem" and "system", from the third-party package "Boost 1.46.1".
-```
-find_package(Boost 1.46.1 REQUIRED COMPONENTS filesystem system)
-```
-The arguments are:
-+ Boost - Name of the library. This is part of used to find the module file FindBoost.cmake.
-+ COMPONENTS - The list of libraries to find.
-### Boost_FOUND
-Most included packages will set a variable "XXX_FOUND", which can be used to check if the package is available on the system. In this example the variable is "Boost_FOUND":
-```
-if(Boost_FOUND)
-    message ("boost found")
-    include_directories(${Boost_INCLUDE_DIRS})
-else()
-    message (FATAL_ERROR "Cannot find Boost")
-endif()
-```
-### include_directories and Boost_INCLUDE_DIRS
-After a package is found it will often export variables which can inform the user where to find the library, header, or executable files. Similar to the XXX_FOUND variable, these are package specific and are typically documented at the top of the FindXXX.cmake file. The variables exported in this example include:
-+ Boost_INCLUDE_DIRS - The path to the boost header files.
-Or more generally, 
-+ xxx_INCLUDE_DIRS - A variable pointing to the header files.
-+ xxx_LIBRARY - A variable pointing to the library path.
-These can then be added to your target_include_directories and target_link_libraries as:
-```
-# Include the boost headers
-target_include_directories( third_party_include
-    PRIVATE ${Boost_INCLUDE_DIRS}
-)
-
-# link against the boost libraries
-target_link_libraries( third_party_include
-    PRIVATE
-    ${Boost_SYSTEM_LIBRARY}
-    ${Boost_FILESYSTEM_LIBRARY}
-)
-```
-### 3 - command line, variables and functions
+### 1 - command line, variables and functions
 + command line
   + cmake
     + `cmake -G "Your Generator" path/to/your/source`
@@ -159,6 +29,7 @@ target_link_libraries( third_party_include
   + CMAKE_SOURCE_DIR:
   + ThirdPartyPackage_DIR, Torch_DIR and OpenCV_DIR for example under which you can find "TorchConfig.cmake" and "OpenCVConfig.cmake", respectively.
   + ThirdPartyPackage_FOUND
+    + `if(Boost_FOUND) message ("boost found") include_directories(${Boost_INCLUDE_DIRS}) else() message (FATAL_ERROR "Cannot find Boost") endif()`
   + PROJECT_BINARY_DIR:
   + PROJECT_SOURCE_DIR: For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the PROJECT_SOURCE_DIR is the directory `C-static-library`.
   + MSVC: Set to true when the compiler is some version of Microsoft Visual C++.
@@ -168,6 +39,7 @@ target_link_libraries( third_party_include
   + add_executable()
     + `add_executable(gflags_exe src/main.cpp)`
   + add_library()
+    + By running `add_library(library_name STATIC src/Hello.cpp)`, "library_name.lib" will be generated and placed to the directory "project_name/build/Debug/".
   + `add_subdirectory(source_dir)`. Adds a subdirectory to the build. The source_dir specifies the directory in which the source CMakeLists.txt and code files are located.
     + `add_subdirectory(src/caffe)`
     + `add_subdirectory(tools)`
@@ -203,17 +75,14 @@ target_link_libraries( third_party_include
       + `message("OpenCV_LIBRARIES: ${OpenCV_LIBRARIES}")` gives `OpenCV_LIBRARIES: opencv_calib3d;opencv_core;opencv_dnn;opencv_features2d;opencv_flann;opencv_gapi;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_videoio;opencv_world`.
     + `target_link_libraries(gflags_example_exe gflagsd.lib)`
 
-### 3 - deploy libtorch on Visual Studio 2019 using cmake
+### 2 - basics
++ [loop and file operation](examples/loop-and-file-operation.md)
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
 + [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md)
-### 3 - 1 intro
-Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (Header.h for example) file simply declares needed classes for the project but doesn't constain any further information. Then the specific definitions and operations of those classes are written in one corresponding .cpp (Hello.cpp for example) file. The remaining .cpp-often named as main.cpp, file acts to show you how to call those classes to complete a certain task.
+### 3 intro to a cpp project
+Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (header file) file simply declares needed classes for the project but doesn't constain further specific definition of functions and objects. Those specific definitions are written in a file like same-name-as-header.cpp. The second .cpp (often named as main.cpp) shows you how to call those classes to implement a certain task.
 
 Here you can find a nice [project](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library) to demonstrate the relationship among Header.h, Hello.cpp and main.cpp, which is summarized as 
 + Header.h ---> Hello.cpp via target_include_directories, i.e., `target_include_directories(project_name PUBLIC ${PROJECT_SOURCE_DIR}/include)`, where Header.h is placed under the directory "${PROJECT_SOURCE_DIR}/include".
-+ Hello.cpp --> .exe via target_link_libraries, i.e., `target_link_libraries(exe_name PRIVATE project_name)`.
++ Hello.cpp --> .exe via target_link_libraries, i.e., `target_link_libraries(exe_name PRIVATE project_name)`. Alternatively, you can transform `Hello.cpp` to "Hello.lib" and then use `target_link_libraries(exe_name PRIVATE Hello.lib)`.
 + main.cpp ---> .exe via add_executable, i.e., `add_executable(exe_name src/main.cpp)`.
-### the most important three components in a CMakeLists.txt
-+ header files, which are in "projectname/include/\*.h"
-+ source files, which are in "projectname/src/\*.cpp"
-+ executable, which is in "projectname/build/"
