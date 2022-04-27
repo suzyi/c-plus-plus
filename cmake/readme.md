@@ -160,15 +160,18 @@ target_link_libraries( third_party_include
 ```
 ### 3 - command line, variables and functions
 + command line
-  + `cmake -G "Your Generator" path/to/your/source`
-  + `cmake .. -C C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake`  
-  + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
-    + `cmake -DCMAKE_PREFIX_PATH=C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries ..`
-    + `cmake -G "Visual Studio 16 2019 Win64" ..`
-    + `cmake -G Ninja ..`
-  + `cmake --build .`
-    + `cmake --build . --config Release` or `Debug`
-    + `cmake --build . --target runtest --config Debug`
+  + cmake
+    + `cmake -G "Your Generator" path/to/your/source`
+    + `cmake -G "Visual Studio 16 2019" -A Win32 -S path/to/your/source -B "build32"` or `cmake -G "Visual Studio 16 2019" -A x64 -S \path_to_source\ -B "build64"`
+    + `cmake .. -C C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake`
+    + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
+      + `cmake -DCMAKE_PREFIX_PATH=C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries ..`
+      + `cmake -G "Visual Studio 16 2019 Win64" ..`
+      + `cmake -G Ninja ..`
+    + `cmake --build .`
+      + `cmake --build build32 --config Release` or `cmake --build build64 --config Release`
+      + `cmake --build . --config Release` or `Debug`
+      + `cmake --build . --target runtest --config Debug`
 + variables
   + CMAKE_BINARY_DIR: The root or top level folder that you run the cmake command from is known as your CMAKE_BINARY_DIR and is the root folder for all your binary files. For example, in the project [C-static-library](https://github.com/ttroy50/cmake-examples/tree/master/01-basic/C-static-library), the CMAKE_BINARY_DIR is `C-static-library/build`.
   + CMAKE_CURRENT_BINARY_DIR:
@@ -208,17 +211,21 @@ target_link_libraries( third_party_include
         + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch -DCMAKE_BUILD_TYPE=Release "Visual Studio 16 2019 Win64" ..`
         + `find_package(OpenCV PATHS "D:/opencv-4.5.1/opencv/build/x64/vc15/lib" NO_DEFAULT_PATH)` and then use `cmake "Visual Studio 16 2019 Win64" ..`
         + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")` and then `find_package(OpenCV REQUIRED)`
-  + `include(cmake/Utils.cmake)`
-  + `include_directories(${Caffe_DIR}/include)` or `include_directories("D:/libcaffe/caffe-windows/include")`
+  + `include(cmake/Utils.cmake)` loads and runs Cmake code from the file given.
+  + `include_directories(${Caffe_DIR}/include)` or `include_directories("D:/libcaffe/caffe-windows/include")`. After this, the compiler will search in these directories for header files.
     + "caffe.hpp", "blob.hpp" and so on can be found in the path "D:/libcaffe/caffe-windows/include".
-  + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
-    + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use include_directories() to tell where .lib are stored.
-  + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
+    + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
+    + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use `include_directories()` to tell where .lib are stored.
+  + message
+    + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
+    + `message(FATAL_ERROR "MSVC: ${MSVC}, COPY_PREREQUISITES: ${COPY_PREREQUISITES}")`
   + project(project_name)
   + set
     + `set(OpenCV_DIR "D:/opencv-4.5.1/opencv/build/x64/vc15/lib")`, so that there is a "OpenCVConfig.cmake" under the directory OpenCV_DIR.
     + `set(var a b c d)` will result in a list `"a;b;c;d"`. `set (var "a b c d")` returns a single variable `"a c c d"`.
+  + `set_target_properties (hello_static PROPERTIES OUTPUT_NAME "hello")` will change the output name from "hello_static.lib" to "hello.lib"
   + target_include_directories()
+    + Basically works the same purpose as `include_directories()`
   + target_link_libraries()
     + `target_link_libraries(hellocaffe ${Caffe_LIBRARIES})`, where `hellocaffe` must have been created by a command such as `add_executable(hellocaffe main.cpp)`.
     + `target_link_libraries(bgr2gray ${OpenCV_LIBRARIES})`, where `bgr2gray` is created via `add_executable(bgr2gray main.cpp)`.

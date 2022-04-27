@@ -46,7 +46,7 @@ When compiling these examples, I suffered from error messages such as "glog.cmak
 + matlab\
 + python\
 + tools\
-  + caffe.cpp will be compiled caffe.exe, which allows training and infering in the terminal.
-  + Data processing toolts.
+  + caffe.cpp will be compiled to caffe.exe, which allows training and infering in the terminal.
+  + Data processing tools.
 + scripts\
 + src\
