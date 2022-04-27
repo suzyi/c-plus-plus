@@ -1,4 +1,10 @@
 # Dependencies of Caffe
++ [2-gflags-example](2-gflags-example)
+    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`
+    + `Debug\hello_exe.exe --width=23 --height=23 --type="png"`
++ [3-glog_example](3-glog_example)
+    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`
+    + `Debug\glog_exe.exe`
 ### functions
 + `caffe_default_properties(convert_imageset)`, `caffe_default_properties(compute_image_mean)`
     + `caffe_default_properties` is defined in cmake/Targets.cmake.
@@ -25,9 +31,7 @@ libraries_v140_x64_py27_1.1.0\libraries\cmake
 |-gflags-targets-debug.cmake
 |-gflags-targets-release.cmake
 ```
-+ [gflags-example](2-gflags-example)
-    + How to build this project? Open an anaconda prompt and navigate to the project folder. Firstly, `mkdir build && cd build`. Secondly, `cmake -A x64 ..`. And finally `cmake --build . --config Debug`.
-    + When building is done, try `Debug\hello_exe.exe --width=23 --height=23 --type="png"`.
+
 + `#include <gflags/gflags.h>`
 + `DEFINE_bool(gray, false, "When this option is on, treat images as grayscale ones");`
 + `DEFINE_int32(resize_width, 0, "Width images are resized to");`
