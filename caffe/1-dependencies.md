@@ -12,6 +12,12 @@ libraries_v140_x64_py27_1.1.0\libraries\lib
 |-gflagsd.dll # for debug mode
 |-gflagsd.lib # for debug mode
 
+libraries_v140_x64_py27_1.1.0\libraries\include
+|-gflags\
+    |-gflags.h
+    |-gflags_completions.h
+    |-gflags_declare.h
+    |-gflags_gflags.h
 libraries_v140_x64_py27_1.1.0\libraries\cmake
 |-gflags-config.cmake
 |-gflags-config-version.cmake

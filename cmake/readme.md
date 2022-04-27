@@ -214,8 +214,8 @@ target_link_libraries( third_party_include
   + `include(cmake/Utils.cmake)` loads and runs Cmake code from the file given.
   + `include_directories(${Caffe_DIR}/include)` or `include_directories("D:/libcaffe/caffe-windows/include")`. After this, the compiler will search in these directories for header files.
     + "caffe.hpp", "blob.hpp" and so on can be found in the path "D:/libcaffe/caffe-windows/include".
-    + `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")`
-    + Error like "fatal error LNK1104: cannot open file 'glog.lib'" may occur if `#include <caffe/XXX>` is in source file. If error occur, just use `include_directories()` to tell where .lib are stored.
+  + `link_directories()` adds the paths in which the linker should search for libraries.
+    + For example, `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")` tells the linker where these libraries "gflags.dll", "gflags.lib", "gflagsd.dll" and "gflagsd.lib" are placed.
   + message
     + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
     + `message(FATAL_ERROR "MSVC: ${MSVC}, COPY_PREREQUISITES: ${COPY_PREREQUISITES}")`
