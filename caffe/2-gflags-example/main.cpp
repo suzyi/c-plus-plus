@@ -1,34 +1,20 @@
-#include <fstream>
 #include <string>
-#include <vector>
 #include <iostream> // cout
 #include <cstdlib> // system("pause")
 #include <gflags.h>
+DEFINE_int32(width, 0, "Width of an image");
+DEFINE_int32(height, 0, "Height of an image");
+DEFINE_string(type, "", "Optional: What type should we encode the image as ('png','jpg',...).");
 
 int main(int argc, char** argv) {
-	gflags::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, false);
 	if (argc < 2) {
 		gflags::ShowUsageWithFlagsRestrict(argv[0], "tools_convert_imageset");
 		return 1;
 	}
-
-	std::ifstream infile(argv[1]);
-	std::vector<std::pair<std::string, int> > lines;
-	std::string line;
-	size_t pos;
-	int label;
-	while (std::getline(infile, line)) {
-	pos = line.find_last_of(' ');
-	label = atoi(line.substr(pos + 1).c_str());
-	lines.push_back(std::make_pair(line.substr(0, pos), label));
-	}
-
-	for (int line_id = 0; line_id < lines.size(); ++line_id) {
-		std::string fn = lines[line_id].first;
-		size_t p = fn.rfind('.');
-		std::string enc = fn.substr(p);
-		std::cout << fn << ", " << enc << ", " << lines[line_id].second << std::endl;
-	}
+	std::cout << "img width:" << FLAGS_width << std::endl;
+	std::cout << "img height:" << FLAGS_height << std::endl;
+	std::cout << "img type:" << FLAGS_type << std::endl;
 	system("pause");
 	return 0;
 }
