@@ -1,10 +1,7 @@
 # Dependencies of Caffe
-+ [2-gflags-example](2-gflags-example)
-    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`
-    + `Debug\hello_exe.exe --width=23 --height=23 --type="png"`
-+ [3-glog_example](3-glog_example)
-    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`
-    + `Debug\glog_exe.exe`
++ [2-gflags_glog_example](2-gflags_glog_example)
+    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`.
+    + Try `Debug\gflags_glog_exe.exe --width=32 --height=32` and `Debug\gflags_glog_exe.exe --width=128 --height=64`.
 ### functions
 + `caffe_default_properties(convert_imageset)`, `caffe_default_properties(compute_image_mean)`
     + `caffe_default_properties` is defined in cmake/Targets.cmake.
@@ -43,3 +40,6 @@ libraries_v140_x64_py27_1.1.0\libraries\cmake
 glog is short for google logging that implements application-level logging.
 + `#include <glog/logging.h>`
 + `int main(int argc, char* argv[]) { google::InitGoogleLogging(argv[0]); LOG(INFO) << "Found " << num_cookies << " cookies";}`
++ `LOG(INFO) << "Glog works now";`
++ `CHECK_EQ`, `CHECK_NE`, `CHECK_LE`, `CHECK_LT`, `CHECK_GE`, `CHECK_GT`
+    + `CHECK_EQ(data.size(), data_size) << "Incorrect data field size " << data.size();`
