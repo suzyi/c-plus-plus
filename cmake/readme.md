@@ -36,6 +36,10 @@
   
 
 + functions
+  + add_definitions()
+    + `add_definitions(-DTEST_DEBUG)`
+      + In a anaconda prompt, `cmake -DTEST_DEBUG=1 ..`.
+      + In a .cpp file, `#ifdef TEST_DEBUG #else #endif`
   + add_executable()
     + `add_executable(gflags_exe src/main.cpp)`
   + add_library()
@@ -59,6 +63,8 @@
     + "caffe.hpp", "blob.hpp" and so on can be found in the path "D:/libcaffe/caffe-windows/include".
   + `link_directories()` adds the paths in which the linker should search for libraries.
     + For example, `link_directories("C:/Users/me/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/lib")` tells the linker where these libraries "gflags.dll", "gflags.lib", "gflagsd.dll" and "gflagsd.lib" are placed.
+  + list
+    + `set (list_test a b c d) # create a list list_test="a;b;c;d"`, then `list(APPEND list_test 1 2 3 4)` results in `list_test="a;b;c;d;1;2;3;4"`
   + message
     + `message("Caffe_INCLUDE_DIRS: ${Caffe_INCLUDE_DIRS}")`
     + `message(FATAL_ERROR "MSVC: ${MSVC}, COPY_PREREQUISITES: ${COPY_PREREQUISITES}")`

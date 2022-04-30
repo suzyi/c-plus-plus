@@ -3,8 +3,11 @@
     + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`.
     + Try `Debug\gflags_glog_exe.exe --width=32 --height=32` and `Debug\gflags_glog_exe.exe --width=128 --height=64`.
 ### functions
-+ `caffe_default_properties(convert_imageset)`, `caffe_default_properties(compute_image_mean)`
-    + `caffe_default_properties` is defined in cmake/Targets.cmake.
++ `caffe_default_properties` is defined in cmake/Targets.cmake.
+    + `caffe_default_properties(convert_imageset)`, `caffe_default_properties(compute_image_mean)`
++ `caffe_option()` is defined in cmake/Utils.cmake.
+    + `caffe_option(CPU_ONLY  "Build Caffe without CUDA support" OFF)`
++ `caffe_set_caffe_link()` is defined in cmake/Targets.cmake.
 ### gflags
 `gflags` helps the .exe file receive arguments/parameters from the Terminal.
 
