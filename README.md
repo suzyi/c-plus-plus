@@ -3,15 +3,6 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 ### Why do I learn cpp?
 + Up to now, I've been using python for more than three years (from Dec 2016 to May 2020). So why do I begin to learn cpp? The major reason is that cpp is faster than python. For example, to solve the same problem (leetcode 1. Two Sum) with the save algorithm below, cpp costs 476ms while python consumes 4048 ms.
 + Part of Tensorflow is written in c++ and Tensorflow also provides stable API for c++ and python and unstable API for other languages.
-### Local Programming Platform
-+ download "Code Blocks" from http://www.codeblocks.org/home
-  + Downloads -> Download the binary release -> codeblocks-20.03mingw-setup.exe
-+ create a c file: New file -> save as .c
-+ create a cpp file: File -> New -> Project -> Console application -> c++.
-### Online Programming Platform
-+ http://www.dooccn.com/cpp/ (unable to compile `unordered_map`)
-+ https://www.tutorialspoint.com/compile_cpp_online.php
-+ nowcoder OJ input-output exercises: https://ac.nowcoder.com/acm/contest/320#question
 ### basics
 + `int a = 2147483647; // 0111 1111 1111 1111 1111 1111 1111 1111; int b = a << 1;     // 1111 1111 1111 1111 1111 1111 1111 1110` left shit operation
 + `const int a = 7;` tells the compiler that `a` is invariant. After that, `a = 8;` will lead to an error.
