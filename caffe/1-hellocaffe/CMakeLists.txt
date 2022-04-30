@@ -7,3 +7,6 @@ set(Caffe_INCLUDE_DIRS "D:/libcaffe/caffe/build/include" "D:/libcaffe/caffe/buil
 include_directories(${Caffe_INCLUDE_DIRS})
 add_executable(hellocaffe main.cpp)
 target_link_libraries(hellocaffe ${Caffe_LIBRARIES})
+
+set(Caffe_DLL_DIR "D:/libcaffe/caffe/build/install/bin/")
+file(COPY ${Caffe_DLL_DIR} DESTINATION Release)

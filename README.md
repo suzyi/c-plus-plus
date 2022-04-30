@@ -28,17 +28,17 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
     + static library [windows .lib, linux .a]: static libraries. .LIB files can be either static libraries (containing object files) or import libraries (containing symbols to allow the linker to link to a DLL). Libraries are used because you may have code that you want to use in many programs. For example if you write a function that counts the number of characters in a string, that function will be useful in lots of programs. Once you get that function working correctly you don't want to have to recompile the code every time you use it, so you put the executable code for that function in a library, and the linker can extract and insert the compiled code into your program. Static libraries are sometimes called 'archives' for this reason.
     + shared library [windows .dll, linux .so, macOS .dylib]: dynamic libraries. Dynamic libraries take this one step further. It seems wasteful to have multiple copies of the library functions taking up space in each of the programs. Why can't they all share one copy of the function? This is what dynamic libraries are for. Rather than building the library code into your program when it is compiled, it can be run by mapping it into your program as it is loaded into memory. Multiple programs running at the same time that use the same functions can all share one copy, saving memory.
   + [.pdb]
-+ [::](https://github.com/suzyi/cpp/blob/master/basics/scope-resolution-operator.md): This is scope resolution operator.
-+ [constructor and destructor](https://github.com/suzyi/cpp/blob/master/basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
++ [::](basics/scope-resolution-operator.md): This is scope resolution operator.
++ [constructor and destructor](basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
 ### advances
-+ [template](https://github.com/suzyi/cpp/blob/master/advances/template/readme.md)
++ [template](advances/template/readme.md)
 ### third-party package
 + [cmake](cmake/readme.md): install cmake, and deploy libtorch and OpenCV on Visual Studio 2019.
-+ [print_hello_world](https://github.com/suzyi/cpp/tree/master/cmake/examples/print_hello_world): use cmake to call VS generator to generate a .exe file.
++ [print_hello_world](cmake/examples/print_hello_world/): use cmake to call VS generator to generate a .exe file.
 + [read_txt](cmake/examples/read_txt/): Print contents of a .txt file line by line.
 + [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example called "print_tensor".
 + [opencv](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md): install opencv, and deploy it on Visual Studio 2019 and then run a simple example called "bgr2gray".
-+ [caffe](https://github.com/suzyi/cpp/tree/master/caffe): install caffe, and implement several deep learning tasks.
++ [caffe](caffe): install caffe, and implement several deep learning tasks.
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
 + [dynamic-programming](https://github.com/suzyi/cpp/blob/master/leetcode/dynamic-programming.md)
@@ -55,5 +55,3 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
     + Both QT and VS 2019 are developing tools. They can replace each other in some basic functions.
 ### Questions
 I am still confused with the questions below:
-+ `vector<int> twoSum(vector<int>& nums, int target)` defines a function named twoSum over the variables nums and target, why do they use `& nums` instead of `nums`?
-+ How do I outputs each element of an unordered_map? Maybe it's related to `auto`?

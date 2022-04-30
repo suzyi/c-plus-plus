@@ -49,6 +49,8 @@
     + `add_subdirectory(tools)`
     + `add_subdirectory(examples)`
   + cmake_minimum_required(VERSION 3.5)
+  + file()
+    + `file(COPY ${Caffe_DLL_DIR} DESTINATION Release)` will copy all files (.dll files included) from ${Caffe_DLL_DIR} to "Release."
   + [find_package()](https://github.com/suzyi/cpp/blob/master/cmake/basics.md#4---how-does-find_package-work)
     + `find_package(glog REQUIRED NO_MODULE)`, where `NO_MODULE` option specifies to find in the Config mode.
     + `PackageName_FOUND` (e.g., `Caffe_FOUND`) will be set to indicate whether the package was found. When the package is found, some other variables (e.g., `Caffe_INCLUDE_DIRS`, `Caffe_DEFINITIONS` and so on) may be set by the package itself.
