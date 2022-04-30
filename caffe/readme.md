@@ -1,10 +1,8 @@
 # Caffe
 ### 1 - Installation
 + [0-installation and running the 1st example](https://github.com/suzyi/cpp/blob/master/caffe/0-caffe_installation.md)
-
-### 2 - Basic Examples
-Examples below are copied and modified from this repository [koosyong/caffestudy](https://github.com/koosyong/caffestudy/):
-+ [1-hellocaffe](1-hellocaffe)
++ [1-hellocaffe](1-hellocaffe). This example is borrowed [koosyong/caffestudy](https://github.com/koosyong/caffestudy/). But a minor modification is made to its CMakeLists.txt to make the project runnable.
+  + `mkdir build && cd build`->`cmake .. -A x64`->`cmake --build . --config Release`->`Release\hellocaffe.exe`. After all these commands done, an error like ".dll can't be found" may appear, which can be solved by copying all ".dll" files from "D:\libcaffe\caffe\build\install\bin" to "1_hellocaffe\build\Release\".
 
 ### 3 - Further Examples
 + Classification
