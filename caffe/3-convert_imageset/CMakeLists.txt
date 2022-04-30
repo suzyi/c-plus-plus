@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8.8)
+include(C:/Users/aqrose/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/caffe-builder-config.cmake)
+find_package(Caffe)
+project(convert_imageset_project)
+link_directories("D:/libcaffe/caffe/build/lib/Release")
+set(Caffe_INCLUDE_DIRS "D:/libcaffe/caffe/build/include" "D:/libcaffe/caffe/build")
+include_directories(${Caffe_INCLUDE_DIRS})
+add_executable(convert_imageset convert_imageset.cpp)
+target_link_libraries(convert_imageset ${Caffe_LIBRARIES})
+
+set(Caffe_DLL_DIR "D:/libcaffe/caffe/build/install/bin/")
+file(COPY ${Caffe_DLL_DIR} DESTINATION Release)
