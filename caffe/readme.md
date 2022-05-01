@@ -8,7 +8,9 @@
     + Try `Debug\gflags_glog_exe.exe --width=32 --height=32` and `Debug\gflags_glog_exe.exe --width=128 --height=64`.
 + [3-convert_imageset](3-convert_imageset)
   + `run_win.cmd`
-+ Classification
++ [4-mnist_classification](4-mnist_classification)
+  + `train.cmd`
+  + `test.cmd`
 + Segmentation
 
 ### 2 - Containers
