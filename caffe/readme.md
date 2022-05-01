@@ -28,7 +28,7 @@
 + `caffe::InnerProductLayer< Dtype > Class Template Reference`
   + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
 ### 3 - exe
-+ `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb`
++ `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb` --resize_width=32 --resize_height=32
 + `build\tools\Release\compute_image_mean.exe data\re\img_train_lmdb data\mean.binaryproto`
 + `build\tools\Release\caffe.exe train -solver=data\re\solver.prototxt`
 

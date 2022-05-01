@@ -32,3 +32,14 @@ private:
 ```
 
 ### 2 - destructor
+Different from Constructor, a class can have only one destructor which clean the object. If no any destructor given, compiler will automatically add one.
+```
+class Box {
+public:
+    // Default constructor
+    Box() {};
+    
+    // Destructor
+    ~Box();
+};
+```

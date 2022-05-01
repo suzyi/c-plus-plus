@@ -43,6 +43,40 @@ libraries_v140_x64_py27_1.1.0\libraries\cmake
 glog is short for google logging that implements application-level logging.
 + `#include <glog/logging.h>`
 + `int main(int argc, char* argv[]) { google::InitGoogleLogging(argv[0]); LOG(INFO) << "Found " << num_cookies << " cookies";}`
-+ `LOG(INFO) << "Glog works now";`
-+ `CHECK_EQ`, `CHECK_NE`, `CHECK_LE`, `CHECK_LT`, `CHECK_GE`, `CHECK_GT`
++ LOG()
+    + `LOG(INFO) << "Glog works now";`
+    + `LOG(FATAL) << "This tool requires OpenCV.";`
++ `CHECK`, `CHECK_EQ`, `CHECK_NE`, `CHECK_LE`, `CHECK_LT`, `CHECK_GE`, `CHECK_GT`. They will break if `false`.
+    + `cv::Mat img = cv::imread(file, -1); CHECK(!img.empty()) << "Unable to decode image " << file;`
     + `CHECK_EQ(data.size(), data_size) << "Incorrect data field size " << data.size();`
+### boost
++ `#include "boost/scoped_ptr.hpp"`
+### caffe/util/db.hpp
+`db.hpp` contains a scope named `db`, defined as 
+```
+namespace db {
+    class Cursor {};
+    class Transaction {};
+    class DB {};
+    DB* GetDB(DataParameter::DB backend);
+    DB* GetDB(const string& backend);
+}
+```
+There, `db::Cursor` is used to specify a class within it.
+
++ `#include "caffe/util/db.hpp"`
++ `scoped_ptr<db::DB> db_file(db::GetDB("lmdb"));` create a new db.
++ `db_file->Open("data/mnist/img_lmdb", db::NEW)`, or `db_file->Open("data/mnist/img_lmdb", db::READ);`
++ `scoped_ptr<db::Transaction> txn(db->NewTransaction());`, txn is short for transaction.
+    + `txn->Put(key_str, out);`
+    + `txn->Commit();`
+    + `txn.reset(db->NewTransaction());`
++ `scoped_ptr<db::Cursor> cursor(db->NewCursor());`
+    + `datum.ParseFromString(cursor->value());`
+    + `cursor->key();`
+    + `while (cursor->valid()) {...; cursor->Next();}`
+### "caffe/proto/caffe.pb.h"
++ `#include "caffe/proto/caffe.pb.h"`
++ `Datum datum;`
++ `data_size = datum.channels() * datum.height() * datum.width();`
++ `string out; datum.SerializeToString(&out);`
