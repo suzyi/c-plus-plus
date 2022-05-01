@@ -1,0 +1,14 @@
+net: "models/train_val.prototxt"
+test_iter: 50
+test_interval: 50
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.1
+stepsize: 1000
+display: 10
+max_iter: 200
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 50
+snapshot_prefix: "results/trained_model"
+solver_mode: CPU

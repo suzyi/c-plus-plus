@@ -1,0 +1,1 @@
+D:\libcaffe\caffe\build\tools\Release\caffe.exe test -model models\train_val.prototxt -weights results\trained_model_iter_200.caffemodel
