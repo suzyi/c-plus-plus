@@ -1,11 +1,12 @@
 # Caffe
 ### 1 - Examples
+All examples below are tested in a Anaconda Prompt.
 + [0-installation and running the 1st example](0-caffe_cpu_installation.md)
 + [1-hellocaffe](1-hellocaffe) is borrowed from [koosyong/caffestudy](https://github.com/koosyong/caffestudy/), with a minor modification made to the original CMakeLists.txt to make the project runnable on Windows.
-  + `mkdir build && cd build`->`cmake .. -A x64`->`cmake --build . --config Release`->`Release\hellocaffe.exe`
-+ [2-gflags_glog_example](2-gflags_glog_example)
-    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`.
-    + Try `Debug\gflags_glog_exe.exe --width=32 --height=32` and `Debug\gflags_glog_exe.exe --width=128 --height=64`.
+  + `run.cmd`
++ [2-dependencies](2-dependencies)
+    + [2-1-gflags_glog_example](2-dependencies/2-1-gflags_glog_example)
+      + `run.cmd`
 + [3-convert_imageset](3-convert_imageset)
   + `run_win.cmd`
 + [4-mnist_classification](4-mnist_classification)
