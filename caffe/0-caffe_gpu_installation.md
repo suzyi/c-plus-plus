@@ -1,5 +1,5 @@
-### The installation caffe-gpu version 
-+ CUDA 7.5 or 8.0 (use CUDA 8 if using Visual Studio 2015)
+### The installation of caffe-gpu
++ CUDA 7.5 or 8.0 (use CUDA 8, precisely cudnn-8.0-windows10-x64-v5.1.zip, if using Visual Studio 2015)
 + cuDNN v5
 
 ### Prepare GPU environment

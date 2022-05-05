@@ -1,7 +1,6 @@
 # Dependencies of Caffe
-+ [2-gflags_glog_example](2-gflags_glog_example)
-    + `mkdir build && cd build`, `cmake -A x64 ..`, `cmake --build . --config Debug`.
-    + Try `Debug\gflags_glog_exe.exe --width=32 --height=32` and `Debug\gflags_glog_exe.exe --width=128 --height=64`.
++ [2-1-gflags_glog_example](2-1-gflags_glog_example)
+    + `rum.cmd`
 ### functions
 + `caffe_default_properties` is defined in cmake/Targets.cmake.
     + `caffe_default_properties(convert_imageset)`, `caffe_default_properties(compute_image_mean)`

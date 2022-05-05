@@ -1,6 +1,6 @@
 # Caffe
 ### 1 - Examples
-All examples below are tested in a Anaconda Prompt.
+All examples below are tested in Anaconda Prompt.
 + [0-installation and running the 1st example](0-caffe_cpu_installation.md)
 + [1-hellocaffe](1-hellocaffe) is borrowed from [koosyong/caffestudy](https://github.com/koosyong/caffestudy/), with a minor modification made to the original CMakeLists.txt to make the project runnable on Windows.
   + `run.cmd`
