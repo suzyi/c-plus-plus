@@ -98,15 +98,4 @@ Up to now, Caffe is successfully installed. To verify this, we need run the clas
 
 Up to now, training process will appear on the Prompt Screen if no new error found.
 
-Note: These steps are modified from [here](https://caffe.berkeleyvision.org/gathered/examples/mnist.html). In the original post, command lines are running on a Linux terminal. So we replace "convert_mnist_data.bin" to "convert_mnist_data.exe" to suit our Windows Anaconda Prompt. 
-## 2- Possible errors encounterd during installation
-+ error 1: vs compiler is not found. To solve this error, edit the file "caffe/scripts/build_win.cmd" so that all `WITH_NINJA` are set to `0`, to use VS generator and disable NINJA.
-
-+ error 2(No such an error found): Add these lines at the top (must be added before you use `project()` command)
-```
-set(CMAKE_C_COMPILER "D:/vs2013/VC/bin/amd64/cl.exe")
-set(CMAKE_CXX_COMPILER "D:/vs2013/VC/bin/amd64/cl.exe")
-```
-+ error 3: Since `%VS120COMNTOOLS%` points to `'D:\vs2013\Common7\Tools\'`, so `call "%VS120COMNTOOLS%..\..\VC\vcvarsall.bat" amd64` equals `call "D:\vs2013\VC\vcvarsall.bat" amd64`
-+ error 4: VS 2013, version 12.0, MSC_VER=1800. If VS 2015 is used, then version 14.0
-+ error 5: `cmake -G "Visual Studio 12 2013 Win64" -C D:\libcaffe\caffe-builder\build_v120_x64\libraries\caffe-build-config.cmake ..`, where `CMAKE_GENERATOR=Visual Studio 12 2013 Win64`
+Note: These steps are modified from [the original post](https://caffe.berkeleyvision.org/gathered/examples/mnist.html), in which command lines work fine on a Linux terminal. So "convert_mnist_data.bin" is replaced to "convert_mnist_data.exe" to suit a Windows Anaconda Prompt. 

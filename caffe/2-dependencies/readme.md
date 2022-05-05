@@ -48,6 +48,7 @@ glog is short for google logging that implements application-level logging.
 + `CHECK`, `CHECK_EQ`, `CHECK_NE`, `CHECK_LE`, `CHECK_LT`, `CHECK_GE`, `CHECK_GT`. They will break if `false`.
     + `cv::Mat img = cv::imread(file, -1); CHECK(!img.empty()) << "Unable to decode image " << file;`
     + `CHECK_EQ(data.size(), data_size) << "Incorrect data field size " << data.size();`
+    + `CHECK_GT(FLAGS_model.size(), 0) << "Need a model definition to score.";`
 ### boost
 + `#include "boost/scoped_ptr.hpp"`
 ### caffe/util/db.hpp

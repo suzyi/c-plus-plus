@@ -12,6 +12,7 @@ All examples below are tested in Anaconda Prompt.
 + [4-mnist_classification](4-mnist_classification)
   + `train.cmd`
   + `test.cmd`
++ [5-classification_inference](5-classification_inference)
 + Segmentation
 
 ### 2 - Containers
