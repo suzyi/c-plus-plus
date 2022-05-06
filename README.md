@@ -9,7 +9,9 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [cout](https://github.com/suzyi/cpp/blob/master/basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
 + [containers](https://github.com/suzyi/cpp/blob/master/basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector, pair.
 + `#if defined(USE_LEVELDB) && defined(USE_LMDB) #include <leveldb/write_batch.h> #include <lmdb.h> #endif`
-+ `#ifndef CAFFE_BLOB_HPP_, #define CAFFE_BLOB_HPP_, #endif  // CAFFE_BLOB_HPP_`. This can help avoid error caused by including the same header file.
++ ifdef, ifndef
+  + `#ifdef CPU_ONLY Caffe::set_mode(Caffe::CPU); #else Caffe::set_mode(Caffe::GPU); #endif`
+  + `#ifndef CAFFE_BLOB_HPP_, #define CAFFE_BLOB_HPP_, #endif  // CAFFE_BLOB_HPP_`. This can help avoid error caused by including the same header file.
 + `inline int Max (int a, int b) {if(a >b) return a;}`. `Inline` means inserting this piece of code to current position to improve efficiency, not calling it.
 + [loop and if and switch](https://github.com/suzyi/cpp/blob/master/basics/loop_if.md): for, while, if, switch, break, auto;
 + [pointer and reference](https://github.com/suzyi/cpp/blob/master/basics/pointer_reference.md): &, *

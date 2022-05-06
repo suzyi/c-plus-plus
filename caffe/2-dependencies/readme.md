@@ -46,7 +46,7 @@ glog is short for google logging that implements application-level logging.
     + `LOG(INFO) << "Glog works now";`
     + `LOG(FATAL) << "This tool requires OpenCV.";`
 + `CHECK`, `CHECK_EQ`, `CHECK_NE`, `CHECK_LE`, `CHECK_LT`, `CHECK_GE`, `CHECK_GT`. They will break if `false`.
-    + `cv::Mat img = cv::imread(file, -1); CHECK(!img.empty()) << "Unable to decode image " << file;`
+    + `cv::Mat img = cv::imread(file, -1); CHECK(!img.empty()) << "Unable to decode image " << file;`, or `CHECK(num_channels_ == 3 || num_channels_ == 1) << "Input layer should have 1 or 3 channels.";`
     + `CHECK_EQ(data.size(), data_size) << "Incorrect data field size " << data.size();`
     + `CHECK_GT(FLAGS_model.size(), 0) << "Need a model definition to score.";`
 ### boost
