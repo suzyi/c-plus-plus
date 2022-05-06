@@ -10,5 +10,5 @@ max_iter: 200
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 50
-snapshot_prefix: "results/trained_model"
+snapshot_prefix: "trained_files/trained_model"
 solver_mode: CPU

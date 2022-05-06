@@ -10,8 +10,8 @@ All examples below are tested in Anaconda Prompt.
 + [3-convert_imageset](3-convert_imageset)
   + `run_win.cmd`
 + [4-mnist_classification](4-mnist_classification)
-  + `train.cmd`
-  + `test.cmd`
+  + `bash train.sh`
+  + `bash test.sh`
 + [5-classification_inference](5-classification_inference)
 + Segmentation
 

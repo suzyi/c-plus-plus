@@ -1,0 +1,3 @@
+mnist_0
+mnist_1
+mnist_2
