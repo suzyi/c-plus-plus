@@ -31,6 +31,16 @@ All examples below are tested in Anaconda Prompt.
   + `blob->width()`
 + `caffe::InnerProductLayer< Dtype > Class Template Reference`
   + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
++ net (when should . and -> be used?what's their difference?)
+  + `shared_ptr<Net<float> > net_;`
+  + `net_.reset(new Net<float>(model_file, TEST));`
+  + `net_->CopyTrainedLayersFrom(trained_file);`
+  + `CHECK_EQ(net_->num_inputs(), 1) << "Network should have exactly one input.";`
+  + `CHECK_EQ(net_->num_outputs(), 1) << "Network should have exactly one output.";`
+  + `Blob<float>* input_layer = net_->input_blobs()[0];`
+  + `Blob<float>* output_layer = net_->output_blobs()[0];`
+  + `net_->Reshape();`
+  + `net_->Forward();`
 ### 3 - exe
 + `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb --resize_width=32 --resize_height=32 --gray=true --shuffle=false`
 + `build\tools\Release\compute_image_mean.exe data\re\img_train_lmdb data\mean.binaryproto`
