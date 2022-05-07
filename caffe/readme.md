@@ -41,6 +41,8 @@ All examples below are tested in Anaconda Prompt.
   + `Blob<float>* output_layer = net_->output_blobs()[0];`
   + `net_->Reshape();`
   + `net_->Forward();`
+  + `const shared_ptr<Blob<float> > prob_blob = net_->blob_by_name("prob"); std::vector<float> prob_vec = std::vector<float>(prob_blob->cpu_data(), prob_blob->cpu_data()+prob_blob->count());`
+    + `for (int i=0; i<prob_vec.size(); i++) {std::cout << "prob_vec[" << i << "]: " << prob_vec[i] << std::endl;}`
 ### 3 - exe
 + `build\tools\Release\convert_imageset.exe data\re\ data\re\trainlist.txt data\re\img_train_lmdb --resize_width=32 --resize_height=32 --gray=true --shuffle=false`
 + `build\tools\Release\compute_image_mean.exe data\re\img_train_lmdb data\mean.binaryproto`
