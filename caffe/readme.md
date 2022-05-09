@@ -65,3 +65,108 @@ tools\
 scripts\
 src\
 ```
+### 5 - prototxt
+#### 5 - 1 - layer prototxt
+```
+layer {
+  name: "data"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mirror: false
+    crop_size: 128
+    mean_file: "data/train_mean.binaryproto"
+  }
+  data_param {
+    source: "data/train_lmdb"
+    batch_size: 8
+    backend: LMDB
+  }
+}
+
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 32
+    kernel_size: 4
+    stride: 2
+    pad: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.01
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+
+layer {
+  name: "deconv1"
+  type: "Deconvolution"
+  bottom: "relu1"
+  top: "deconv1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 4
+    stride: 1
+    pad: 0
+  }
+}
+```
+#### 5 - 2 - activation prototxt
+```
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "conv1"
+  top: "relu1"
+  relu_param {
+    negative_slope: 0.2
+  }
+}
+
+
+layer {
+  name: "sigmoid"
+  type: "Sigmoid"
+  bottom: "inv_relu1"
+  top: "sigmoid"
+}
+```
+#### 5 - 3 - loss prototxt
+```
+layer {
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "sigmoid"
+  bottom: "data"
+  top: "l2_error"
+  loss_weight: 1.0
+}
+```
