@@ -66,6 +66,7 @@ scripts\
 src\
 ```
 ### 5 - prototxt
+See https://caffe.berkeleyvision.org/tutorial/layers.html for more info.
 #### 5 - 1 - layer prototxt
 ```
 layer {
