@@ -10,15 +10,47 @@ layer {
   name: "data"
   type: "ImageData"
   top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
   transform_param {
     mirror: false
     crop_size: 28
+    scale: 0.0039215684
   }
   image_data_param {
     source: "data/train_list.txt"
-    batch_size: 4
+    root_folder: "data/"
+    batch_size: 8
+    is_color: false
     new_height: 28
     new_width: 28
+    shuffle: true
+  }
+}
+
+layer {
+  name: "data"
+  type: "ImageData"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+    mirror: false
+    crop_size: 28
+    scale: 0.0039215684
+  }
+  image_data_param {
+    source: "data/test_list.txt"
+    root_folder: "data/"
+    batch_size: 8
+    is_color: false
+    new_height: 28
+    new_width: 28
+    shuffle: true
   }
 }
 ```
