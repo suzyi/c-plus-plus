@@ -8,6 +8,23 @@ See https://caffe.berkeleyvision.org/tutorial/layers.html for more info.
 ```
 layer {
   name: "data"
+  type: "ImageData"
+  top: "data"
+  transform_param {
+    mirror: false
+    crop_size: 28
+  }
+  image_data_param {
+    source: "data/train_list.txt"
+    batch_size: 4
+    new_height: 28
+    new_width: 28
+  }
+}
+```
+```
+layer {
+  name: "data"
   type: "Data"
   top: "data"
   top: "label"
@@ -26,7 +43,8 @@ layer {
     backend: LMDB
   }
 }
-
+```
+```
 layer {
   name: "data"
   type: "Input"
@@ -71,7 +89,8 @@ layer {
     }
   }
 }
-
+```
+```
 layer {
   name: "deconv1"
   type: "Deconvolution"
@@ -104,7 +123,8 @@ layer {
     negative_slope: 0.2
   }
 }
-
+```
+```
 layer {
   name: "sigmoid"
   type: "Sigmoid"
