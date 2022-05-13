@@ -44,7 +44,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [print_hello_world](cmake/examples/print_hello_world/): use cmake to call VS generator to generate a .exe file.
 + [read_txt](cmake/examples/read_txt/): Print contents of a .txt file line by line.
 + [libtorch](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example called "print_tensor".
-+ [opencv](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md): install opencv, and deploy it on Visual Studio 2019 and then run a simple example called "bgr2gray".
++ [opencv](opencv)
 + [caffe](caffe): install caffe, and implement several deep learning tasks.
 ### leetcode
 + [top-100-liked-questions](https://github.com/suzyi/cpp/blob/master/leetcode/top-100-liked-questions.md)
