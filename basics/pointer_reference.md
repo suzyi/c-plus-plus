@@ -1,6 +1,7 @@
 `&` works in 3 scenarios -- acquire address, reference, and logical "and".
 + acquire address: `int a=10; int* b = &a;` `cout << "Address:" << b << endl;` `cout << "value at this address:" << *b << endl;`
 + reference: `int a = 1; int& a_nickname = a;`
++ With the help of `&`, a `void function(&output1, &output2)` will be able to modify two variables in just one function, which is a shortage of `return`.
 ```
 // sample code
 #include <iostream>

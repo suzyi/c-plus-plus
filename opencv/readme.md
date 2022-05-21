@@ -14,5 +14,6 @@
 + `cv::resize(img, img_resized, net_in_height_width);`
   + `cv::Mat img_float; img_resized.convertTo(img_float, CV_32FC3);` or `img_resized.convertTo(img_float, CV_32FC3);`
 + `std::vector<cv::Mat> input_channels; cv::split(img_float, input_channels);`
-+ `cv::Size net_in_height_width;`
++ `cv::Size kernel_size(16, 8);`
+  + `kernel_size.width` prints 16, `kernel_size.height` prints 8.
 + `int s = cv::sum(img_resized)[0];`
