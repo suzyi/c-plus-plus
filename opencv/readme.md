@@ -12,11 +12,13 @@
   + `-1` unchanged, `0` grayscale.
   + `cv_img.create(height, width, CV_8UC(channels));`
   + `cv_img.size()` will print (width, height).
+    + `cv_img.size().height`, `cv_img.size().width`
   + `cv_img.channels()`
   + `cv_img.type()`
   + `cv_img.reshape(int cn, int rows)`
     + `cn` specifies channels.
   + `cv_img.t()` transpose.
++ `cv::Mat grid_mat; cv::merge(grid_vec, grid_mat);`
 + `double minVal; double maxVal; cv::minMaxLoc(img_float, &minVal, &maxVal); std::cout << "min val: " << minVal << std::endl;`
 + `cv::Mat(kernel_gradients, cv::Rect(top_left_x, top_left_y, kernel_size.width, kernel_size.height));`
 + `cv::repeat(InputArray src, int ny, int nx, OutputArray dst);`
