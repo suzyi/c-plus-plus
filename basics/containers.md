@@ -4,7 +4,9 @@
     + `cout<<sizeof(a)/<<sizeof(a[0]);` give 5.
   + `string a[] = {"Jan", "Feb"};`
     + `cout<<a[1];` gives "Feb".
-    + `string s("data/25.png")` or `string s = "data/25.png", token = s.substr(0, s.find("/"))` gives "token = data".
+    + `string line = "0.0,0.25,0.5,0.75,1.00\n";`
+      + `size_t pos = line.find_last_of('\n');`, `size_t start = 0; int length = pos-start; line.substr(start, length);`
+      + `size_t pos = line.find(",", 0); while pos!=string::npos {positions.push_back(pos); pos=line.find(",", pos+1); std::stof(line.substr(start, length))};`
 + bitset
   + `#include <bitset>`
   + `bitset<5> a;`
