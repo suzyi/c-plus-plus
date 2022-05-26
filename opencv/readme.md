@@ -7,9 +7,10 @@
 + `cv::Mat ones = cv::Mat(int rows, int cols, CV_8UC3, cv::Scalar(1, 1, 1));`
 + `cv::Mat img(int rows, int cols, int type);`
   + `img.at<float>(i, j) = 2*CV_PI*rng.uniform(0.0, 1.0);` i-th row, j-th col.
-  + `cv::Mat subImg = img[cv::Range(0, 100), cv::Range(0, 100)];`
+  + `for (int channel=0; channel<3; channel++) img.ptr<float>(i, j)[channel];`
+  + `cv::Mat subImg = img(cv::Range(0, 100), cv::Range(0, 100));` `subImage` has the same channels with `img`.
 + `cv::Mat img = cv::imread("data/1.png", -1);`
-  + `-1` unchanged, `0` grayscale.
+  + `-1` unchanged, `0` grayscale, `cv::IMREAD_COLOR`
   + `cv_img.create(height, width, CV_8UC(channels));`
   + `cv_img.size()` will print (width, height).
     + `cv_img.size().height`, `cv_img.size().width`
