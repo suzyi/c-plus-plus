@@ -43,6 +43,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [cmake](cmake/readme.md): install cmake, and deploy libtorch and OpenCV on Visual Studio 2019.
 + [print_hello_world](cmake/examples/print_hello_world/): use cmake to call VS generator to generate a .exe file.
 + [read_txt](cmake/examples/read_txt/): Print contents of a .txt file line by line.
+  + `bash compile.sh`
 + [libtorch](deep-learning/libtorch.md): download the libtorch and deploy it on Visual Studio 2019 and then run a simple example called "print_tensor".
 + [opencv](opencv)
 + [caffe](caffe): install caffe, and implement several deep learning tasks.

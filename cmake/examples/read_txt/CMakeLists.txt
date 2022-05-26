@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-
-project(hello_project)
-add_executable(hello_exe
+project(txt_project)
+add_executable(read_txt
     main.cpp
 )
