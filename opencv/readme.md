@@ -27,6 +27,9 @@
   + `nx` how many times along horizontal axis.
 + `cv::resize(img, img_resized, net_in_height_width);`
   + `cv::Mat img_float; img_resized.convertTo(img_float, CV_32FC3);` or `img_resized.convertTo(img_float, CV_32FC3);`
++ `cv::RNG rng(cv::getTickCount());`
+  + `rng.uniform(0.0, 1.0);` generates a float over the interval [0, 1).
+  + `rng.uniform(0, 7);` generates an int number over [0, 7).
 + `std::vector<cv::Mat> input_channels; cv::split(img_float, input_channels);`
 + `cv::Size kernel_size(16, 8);`
   + `kernel_size.width` prints 16, `kernel_size.height` prints 8.
