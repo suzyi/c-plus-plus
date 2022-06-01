@@ -2,6 +2,8 @@
 + [0-installation](0-installation.md): install opencv, and deploy it on Visual Studio 2019 and then run a simple example called "bgr2gray".
 + [1-object-detection](1-object-detection): Detect objects on images with pure background.
 ### cv::Mat
++ `void cv::cvtColor(cv::InputArray src, cv::OutArray dst, int code , int  dstCn=0 );`
++ `std::vector<cv::String> path_to_imgs; cv::glob("img_library/*.jpg", path_to_imgs, true);` true indicates subfolders will be recursively included.
 + `cv::hconcat(img_true, img_recon, img_concat);`
 + `cv::imwrite("result/1.png", img_concat);`
 + `cv::Mat ones = cv::Mat(int rows, int cols, CV_8UC3, cv::Scalar(1, 1, 1));`
@@ -34,3 +36,14 @@
 + `cv::Size kernel_size(16, 8);`
   + `kernel_size.width` prints 16, `kernel_size.height` prints 8.
 + `int s = cv::sum(img_resized)[0];`
+### img.type() - a table to look up
+
+|  | C1 | C2 | C3 | C4 | C(5) | C(6) | C(7) | C(8) |
+|---| ----- |
+| CV_8U | 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 |
+| CV_8S | 1 | 9 | 17 | 25 | 33 | 41 | 49 | 57 |
+| CV_16U | 2 | 10 | 18 | 26 | 34 | 42 | 50 | 58 |
+| CV_16S | 3 | 11 | 19 | 27 | 35 | 43 | 51 | 59 |
+| CV_32S | 4 | 12 | 20 | 28 | 36 | 44 | 52 | 60 |
+| CV_32F | 5 | 13 | 21 | 29 | 37 | 45 | 53 | 61 |
+| CV_64F | 6 | 14 | 22 | 30 | 38 | 46 | 54 | 62 |
