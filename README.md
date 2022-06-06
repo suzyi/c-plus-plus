@@ -20,6 +20,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + comment and uncomment: ctrl+/
 + `i++` vs `++i`: If `int i=0; string s="abc";`, then `cout<<s[i++]<<", i="<<i<<endl;` outputs `a, i=1` and `i=0; cout<<s[++i]<<", i="<<i<<endl;` outputs `b, i=1`.
 + [struct and class](basics/struct_class.md).
++ [timer](basics/timer.md)
 + typedef
   + `typedef char char_fixed_len[81];`, then use `char_fixed_len var1, var2` to define two variables sharing the same length 81.
   + `typedef char * pstr; pstr str = "abc";`

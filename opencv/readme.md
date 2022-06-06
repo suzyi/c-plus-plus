@@ -2,7 +2,9 @@
 + [0-installation](0-installation.md): install opencv, and deploy it on Visual Studio 2019 and then run a simple example called "bgr2gray".
 + [1-object-detection](1-object-detection): Detect objects on images with pure background.
 ### cv::Mat
-+ `void cv::cvtColor(cv::InputArray src, cv::OutArray dst, int code , int  dstCn=0 );`
++ `void cv::cvtColor(cv::InputArray src, cv::OutArray dst, cv::COLOR_RGB2GRAY);`
+  + `cv::COLOR_RGB2BGR`
++ `cv::getTickCount()`
 + `std::vector<cv::String> path_to_imgs; cv::glob("img_library/*.jpg", path_to_imgs, true);` true indicates subfolders will be recursively included.
 + `cv::hconcat(img_true, img_recon, img_concat);`
 + `cv::imwrite("result/1.png", img_concat);`
@@ -37,7 +39,7 @@
   + `kernel_size.width` prints 16, `kernel_size.height` prints 8.
 + `int s = cv::sum(img_resized)[0];`
 ### img.type() - a table to look up
-
+The table below is from [stackoverflow](https://stackoverflow.com/questions/10167534/how-to-find-out-what-type-of-a-mat-object-is-with-mattype-in-opencv/39780825#39780825)
 |  | C1 | C2 | C3 | C4 | C(5) | C(6) | C(7) | C(8) |
 |--|----|----|----|----|------|------|------|------|
 | CV_8U | 0 | 8 | 16 | 24 | 32 | 40 | 48 | 56 |
