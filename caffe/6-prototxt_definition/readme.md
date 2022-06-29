@@ -1,5 +1,6 @@
 # prototxt definition
-See https://caffe.berkeleyvision.org/tutorial/layers.html for more info.
++ See https://caffe.berkeleyvision.org/tutorial/layers.html for more info.
++ See https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L956-L983 for proto info.
 ### 1 - input layers
 + Image Data - read raw images. `type: ImageData`
 + Database - read data from a LEVELDB or LMDB database. `type: Data`

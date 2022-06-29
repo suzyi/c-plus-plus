@@ -1,5 +1,6 @@
 ### timer
 ```
+#include <ctime>
 time_t begin=std::time(0); // get current time
 int repeat_times=500;
 for (int i=0; i<repeat_times; i++) {

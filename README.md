@@ -6,7 +6,10 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 ### basics
 + `int a = 2147483647; // 0111 1111 1111 1111 1111 1111 1111 1111; int b = a << 1;     // 1111 1111 1111 1111 1111 1111 1111 1110` left shit operation
 + `const int a = 7;` tells the compiler that `a` is invariant. After that, `a = 8;` will lead to an error.
-+ [cout](basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
++ std
+  + [cout](basics/cout.md): `std::cout<<std::endl;` vs `cout<<endl;`
+  + `std::string img_name = "5.png";`
+  + `std::string img_name = std::to_string(5) + ".png";`
 + [containers](basics/containers.md): array, bitset, deque, queue, stack, unordered_map, vector, pair.
 + `#if defined(USE_LEVELDB) && defined(USE_LMDB) #include <leveldb/write_batch.h> #include <lmdb.h> #endif`
 + ifdef, ifndef
@@ -29,6 +32,8 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
     + An alternative way is `typedef void (*PrintHelloHandle)(int);`, followed by `PrintHelloHandle pFunc; pFunc = &printHello; (*pFunc)(110);`, and `PrintHelloHandle pFuncOther;`
 + [common functions](basics/common_functions.md): sort, accumulate
 + [data types](basics/data_types.md): int, bool, string, char, auto
+  + From string to int, `int main(int argc, char** argv) {int batch_size = atoi(argv[1]);}`
+  + From string to float, `string score_str = "0.34821"; float score_float = atof(score_str.c_str());`
 + file types (Generally, a c++ project usually contains a .h file and two .cpp files where .h makes a simple definition for all classes, one .cpp makes specific definition and operations for all those class, and the remaining .cpp is typically named as main.cpp to execute a certain task by calling those defined classes.)
   + [.h header files](basics/header.md): How to create your own header (.h) files in C/C++?
   + [.cpp]
