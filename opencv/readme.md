@@ -34,6 +34,8 @@
 + `cv::RNG rng(cv::getTickCount());`
   + `rng.uniform(0.0, 1.0);` generates a float over the interval [0, 1).
   + `rng.uniform(0, 7);` generates an int number over [0, 7).
++ `cv::threshold(img_gray, img_binary, thresh_value, 255, 1);`
+  + `type=0` implies that pixel values greater than thresh are set to maxval, less than thresh are set to zero. `type=1` performs the opposite actions.
 + `std::vector<cv::Mat> input_channels; cv::split(img_float, input_channels);`
 + `cv::Size kernel_size(16, 8);`
   + `kernel_size.width` prints 16, `kernel_size.height` prints 8.

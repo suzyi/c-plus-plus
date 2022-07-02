@@ -4,7 +4,7 @@ The official installation on Windows 10 can be found in [tutorial_windows_instal
 + Firstly, download the "opencv-for-windows.exe" from [the downloading page](https://sourceforge.net/projects/opencvlibrary/files/opencv-win/).
 + Secondly, click the downloaded "opencv-for-windows.exe" and install it to a proper directory (actually, the installation is just an uncompressing process).
 + Finally, run a toy example using opencv to check if it works fine, following [these steps](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md#2---run-a-toy-opencv-example).
-### 2 - run a toy opencv example
+### 2 - run a toy opencv example, with the helpf of CMakeLists.txt
 Before all, we have to declare that this toy example is run on such a platform
 + OS is Windows 10,
 + cmake,
@@ -108,3 +108,18 @@ Thirdly, open the file "bgr2gray/build/rgb2gray.vcxproj" using Visual Studio 201
 then you may suffer from an error "opencv_world451d.dll is missing" or "can't find opencv_world451d.dll". To fix this, just copy "D:\opencv-4.5.1\opencv\build\x64\vc15\bin\opencv_world451d.dll" to the folder "bgr2gray\build\Debug\".
 
 Finally, click the "bgr2gray\build\Debug\rgb2gray.exe" and you will see a color image and a gray image.
+
+### 3 - run a toy opencv example, without the helpf of CMakeLists.txt
+Configure a VS2017 project without using CMakeLists.txt.
+
++ Configuration Properties
+	+ C/C++
+		+ General
+			+ Additional Include Directories: `D:\opencv-4.5.1\opencv\build\include;` under which header files are found.
+	+ Linker
+		+ General
+			+ Additional Library Directories: `D:\opencv-4.5.1\opencv\build\x64\vc15\lib;` under which .lib files are found.
+		+ Input
+			+ Additional Dependencies:
+				+ `opencv_world451.lib;` for Release version.
+				+ `opencv_world451d.lib;` for Debug version.
