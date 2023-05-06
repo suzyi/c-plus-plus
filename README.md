@@ -45,6 +45,8 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [constructor and destructor](basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
 ### advances
 + [template](advances/template/readme.md)
+### programming platform
++ [Download VS 2015 Community](https://github.com/suzyi/cpp/blob/master/caffe/0-caffe_cpu_installation.md)
 ### third-party package
 + [cmake](cmake/readme.md): install cmake, and deploy libtorch and OpenCV on Visual Studio 2019.
 + [print_hello_world](cmake/examples/print_hello_world/): use cmake to call VS generator to generate a .exe file.
