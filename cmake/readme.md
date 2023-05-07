@@ -2,7 +2,11 @@
 + command line
   + cmake
     + `cmake -G "Your Generator" path/to/your/source`
-    + `cmake -G "Visual Studio 16 2019" -A Win32 -S path/to/your/source -B "build32"` or `cmake -G "Visual Studio 16 2019" -A x64 -S \path_to_source\ -B "build64"`
+    + `cmake -G "Visual Studio 16 2019" -A Win32 -S path/to/your/source -B "buildFolder"` or `cmake -G "Visual Studio 16 2019" -A x64 -S \path_to_source\ -B "buildFolder"`
+      + `-G` specifies the Generator. Options: `Visual Studio 16 2019`, `Visual Studio 14 2015`, `Visual Studio 12 2013` and so on.
+      + `-A` specifies the type. Options: `Win32`, `x64`.
+      + `-B` specifies the output folder, which is commonly named `build`.
+      + `-S` specifies the folder where `main.cpp` is at.
     + `cmake .. -C C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake`
     + `cmake -DCMAKE_PREFIX_PATH=D:\libtorch-win-debug-1.8.1-cpu\libtorch "Visual Studio 16 2019 Win64" ..` or `cmake "Visual Studio 16 2019 Win64" ..`
       + `cmake -DCMAKE_PREFIX_PATH=C:\Users\me\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries ..`
