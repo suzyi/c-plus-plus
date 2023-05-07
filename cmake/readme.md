@@ -86,7 +86,7 @@
 ### 2 - basics
 + [loop and file operation](examples/loop-and-file-operation.md)
 + [deploy a libtorch project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/libtorch.md)
-+ [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/deep-learning/opencv.md)
++ [deploy a opencv project on Visual Studio 2019 using cmake](https://github.com/suzyi/cpp/blob/master/opencv/0-installation.md#2---run-a-toy-opencv-example-with-the-helpf-of-cmakeliststxt)
 ### 3 intro to a cpp project
 Generally, three files (one .h header file and two .cpp files) are contained within a c++ project. The .h (header file) file simply declares needed classes for the project but doesn't constain further specific definition of functions and objects. Those specific definitions are written in a file like same-name-as-header.cpp. The second .cpp (often named as main.cpp) shows you how to call those classes to implement a certain task.
 
