@@ -107,6 +107,11 @@ Thirdly, open the file "bgr2gray/build/rgb2gray.vcxproj" using Visual Studio 201
 + left click "Local Windows Debugger",
 then you may suffer from an error "opencv_world451d.dll is missing" or "can't find opencv_world451d.dll". To fix this, just copy "D:\opencv-4.5.1\opencv\build\x64\vc15\bin\opencv_world451d.dll" to the folder "bgr2gray\build\Debug\".
 
+or, use command line
+```
+project_name\build> cmake --build .
+```
+
 Finally, click the "bgr2gray\build\Debug\rgb2gray.exe" and you will see a color image and a gray image.
 
 ### 3 - run a toy opencv example, without the helpf of CMakeLists.txt
