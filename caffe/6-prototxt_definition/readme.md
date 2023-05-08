@@ -2,9 +2,10 @@
 + See https://caffe.berkeleyvision.org/tutorial/layers.html for more info.
 + See https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto#L956-L983 for proto info.
 ### 1 - input layers
-+ Image Data - read raw images. `type: ImageData`
-+ Database - read data from a LEVELDB or LMDB database. `type: Data`
-+ Input - typically used for networks that are being deployed. `type: Input`
++ `type: ImageData`. Image Data - read raw images. 
+  + `source: "data/train_list.txt"`. The 1st line of train_list.txt is "/path/to/myfirstimage.jpg 123", i.e., the path and the label. Make sure your '/my/path/file_list.txt' has this exact format: only one space (not tab or any other character) between the path and the label. There are no other white space characters after the label other than new line char indicating end of line.
++ `type: Data`. Database - read data from a LEVELDB or LMDB database. 
++ `type: Input`. Input - typically used for networks that are being deployed. 
 
 ```
 layer {
