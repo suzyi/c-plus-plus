@@ -22,6 +22,7 @@ All examples below are tested in Anaconda Prompt.
   + `blob->channels()`
   + `blob->count()`-`batchsize*channels*height*width`
   + `blob->cpu_data()`
+  + `blob->data_at(0, 1, 43, 32);` - the value at given index.
   + `blob->gpu_data()`
   + `blob->height()`
   + `blob->mutable_cpu_data()`
