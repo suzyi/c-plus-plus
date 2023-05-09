@@ -63,7 +63,8 @@ layer {
   top: "data"
   top: "label"
   include {
-    phase: TRAIN
+    phase: TEST
+    stage: "test-on-train"//(or "test-on-test")
   }
   transform_param {
     mirror: false
