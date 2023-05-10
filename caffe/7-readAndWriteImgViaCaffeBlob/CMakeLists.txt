@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8.8)
+include(C:/Users/jack/.caffe/dependencies/libraries_v140_x64_py27_1.1.0/libraries/caffe-builder-config.cmake)
+find_package(Caffe)
+project(readImgViaCaffe_proj)
+link_directories("F:/libcaffe/caffe/build/lib/Release")
+set(Caffe_INCLUDE_DIRS "F:/libcaffe/caffe/build/include" "F:/libcaffe/caffe/build")
+include_directories(${Caffe_INCLUDE_DIRS})
+add_executable(readImgViaCaffe main.cpp)
+target_link_libraries(readImgViaCaffe ${Caffe_LIBRARIES})
+
+set(Caffe_DLL_DIR "F:/libcaffe/caffe/build/install/bin/")
+file(COPY ${Caffe_DLL_DIR} DESTINATION Release)

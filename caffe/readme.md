@@ -14,9 +14,15 @@ All examples below are tested in Anaconda Prompt.
   + `bash test.sh`
 + [5-classification_inference](5-classification_inference)
 + [6-prototxt_definition](6-prototxt_definition)
++ [7-readAndWriteImgViaCaffeBlob](7-readAndWriteImgViaCaffeBlob)
++ [8-mseErrorViaCaffe](8-mseErrorViaCaffe)
+  + Calculate the Euclidean distance between two blobs, via `math_functions.cpp`.
+  + Calculate the Euclidean distance between two blobs, via `euclidean_loss_layer.cpp`.
 + Segmentation
 
 ### 2 - Containers
++ `caffe::Blob<float> diff_;`
+  + `diff_.ReshapeLike(*blob_1);`, if `blob_1` already exists. This function is commonly used in the subtraction of two blobs, i.e., `caffe::caffe_sub(blob_1->count(), blob_1->cpu_data(), blob_2->cpu_data(), diff_.mutable_cpu_data());`.
 + `Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);` Binary long object
   + `blob->asum_data()`-absolute sum
   + `blob->channels()`

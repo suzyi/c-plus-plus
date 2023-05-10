@@ -1,0 +1,10 @@
+name: "CaffeNet"
+layer {
+    name: "data"
+    type: "Input"
+    top: "data"
+    input_param {shape: {dim:1 dim:3 dim:128 dim:128}}
+    transform_param {
+        scale: 0.0039215684
+    }
+}
