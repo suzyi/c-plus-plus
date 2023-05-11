@@ -16,6 +16,8 @@ There are many posts online sharing the installation of Caffe on Windows 10. Amo
 
 We follow the steps of BVLC-caffe-windows to build and install Caffe.
 ### 1-1- Install Visual Studio 2013
+(or [Install Visual Studio 2015](https://github.com/suzyi/cpp/tree/master#programming-platform))
+
 + Install Visual Studio 2013 (vs 2013). [A Chinese tutorial of downloading and installing vs2013](https://jingyan.baidu.com/article/3ea5148999921f52e61bbae0.html) is helpful.
   + In fact, only the VS C/C++ compiler is required (cl.exe). 
   + After vs2013 is installed, you can find the VS C/C++ compiler (cl.exe) in `D:\vs2013\VC\bin\amd64\cl.exe`.
@@ -86,6 +88,9 @@ Finally, build and install caffe by executing
 Up to now, Caffe is successfully installed. To verify this, we need run the classification task of MNIST, see the next part.
 
 ### 1-5- Run the classification task of MNIST to check if Caffe works fine
+
+Steps below are modified from [caffe's original post](https://caffe.berkeleyvision.org/gathered/examples/mnist.html), in which command lines work fine on a Linux terminal. Remembering that we are working on Windows system, so "convert_mnist_data.bin" is replaced to "convert_mnist_data.exe". 
+
 + run this example to check if caffe is successfully installed
   + `(forCaffe)D:\libcaffe>caffe> bash data\mnist\get_mnist.sh` will download MNIST data. Errors may appear:
     + No bash found? Install it.
@@ -97,5 +102,3 @@ Up to now, Caffe is successfully installed. To verify this, we need run the clas
     + `build/tools/caffe: No such file or directory.` Solution: caffe.exe can be found at "D:\libcaffe\caffe\build\tools\Release\caffe.exe"
 
 Up to now, training process will appear on the Prompt Screen if no new error found.
-
-Note: These steps are modified from [the original post](https://caffe.berkeleyvision.org/gathered/examples/mnist.html), in which command lines work fine on a Linux terminal. So "convert_mnist_data.bin" is replaced to "convert_mnist_data.exe" to suit a Windows Anaconda Prompt. 

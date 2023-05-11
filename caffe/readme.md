@@ -37,8 +37,29 @@ All examples below are tested in Anaconda Prompt.
   + `blob->Reshape(50, 40, 30, 20)`
   + `blob->sumsq_data()`
   + `blob->width()`
-+ `caffe::InnerProductLayer< Dtype > Class Template Reference`
-  + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
++ Datum (A Datum is more like a single image, because a datum and a cv::Mat can be mutually converted to each other. A Blob is more like a batch of images.)
+  + `caffe::Datum datum_;`
+    + `caffe::ReadImageToDatum("1.png", string label, int height, int width, bool is_color, &datum_);`
+    + `datum_.height();`
+    + `datum_.width();`
+    + `datum_.channels();`
+    + There is no batchsize: `datum_.num();`
+    + There is no absolute sum: `datum_.asum_data();`
+    + There is no data at certain index: `datum_.data_at(c, h, w);`
+    + `cv::Mat DecodeDatumToCVMat(const Datum& datum, bool is_color)`, or `cv::Mat DecodeDatumToCVMatNative(const Datum& datum)`
+    + `void CVMatToDatum(const cv::Mat& cv_img, Datum* datum);`
+    + From cv::Mat to Datum: `datum_.set_data(buffer);`, where `std::string buffer(datum_size, ' ');`. See [caffe/util/io.cpp](https://github.com/BVLC/caffe/blob/master/src/caffe/util/io.cpp) for more details.
+    + From Datum to cv::Mat: `const string& data = datum.data();`
++ layer
+  + loss layer
+    + `#include "caffe/layers/euclidean_loss_layer.hpp"`
+      + `const caffe::LayerParameter param_; caffe::EuclideanLossLayer<float> mse_layer(param_);`
+      + `std::vector<caffe::Blob<float>*> bottom, top; `
+      + `bottom.push_back(blob_1); bottom.push_back(blob_2); top.push_back(new caffe::Blob<float>(1, 1, 1, 1));`
+      + `mse_layer.Forward(bottom, top);`
+      + `cout << top[0]->cpu_data()[0] << endl;`
+  + `caffe::InnerProductLayer< Dtype > Class Template Reference`
+    + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
 + net (when should . and -> be used?what's their difference?)
   + `shared_ptr<Net<float> > net_;`
   + `net_.reset(new Net<float>(model_file, TEST));`
