@@ -18,11 +18,18 @@ All examples below are tested in Anaconda Prompt.
 + [8-mseErrorViaCaffe](8-mseErrorViaCaffe)
   + Calculate the Euclidean distance between two blobs, via `math_functions.cpp`.
   + Calculate the Euclidean distance between two blobs, via `euclidean_loss_layer.cpp`.
++ [9-datumAndBlob](9-datumAndBlob)
+  + Datum->cv::Mat->Blob
+  + Blob->cv::Mat->Datum
++ [10-caffeCpuMse](10-caffeCpuMse/readme.md)
+  + Add a new function "caffe_cpu_mse" to caffe.
++ add a new layer to caffe
 + Segmentation
 
 ### 2 - Containers
-+ `caffe::Blob<float> diff_;`
++ `caffe::Blob<float> diff_;` or `caffe::Blob<float> blob_1(int batchsize, int channels, int height, int width); blob_1.mutable_cpu_data()[((b*channels + c)*height + h)*width + w] = 0.5;`
   + `diff_.ReshapeLike(*blob_1);`, if `blob_1` already exists. This function is commonly used in the subtraction of two blobs, i.e., `caffe::caffe_sub(blob_1->count(), blob_1->cpu_data(), blob_2->cpu_data(), diff_.mutable_cpu_data());`.
+  + `blob_1->cpu_data()` vs `blob_1->mutable_cpu_data()`, the former is read-only, while the latter allows you to change its value.
 + `Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);` Binary long object
   + `blob->asum_data()`-absolute sum
   + `blob->channels()`

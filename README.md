@@ -44,7 +44,7 @@ Today is May 12, 2020. I begin to learn c++ from scratch.
 + [::](basics/scope-resolution-operator.md): This is scope resolution operator.
 + [constructor and destructor](basics/constructor_and_destructor.md): Introduce the concept of constructor and destructor.
 ### advances
-+ [template](advances/template/readme.md)
++ [template](advances/template/readme.md): contains "function template" and "class template".
 ### programming platform
 + Visual Studio 2013: [download, install and run_a_helloWorld_project](https://github.com/suzyi/cpp/blob/master/caffe/0-caffe_cpu_installation.md#1-1--install-visual-studio-2013)
 + Visual Studio 2015 Community: [download and install](https://stackoverflow.com/questions/44290672/how-to-download-visual-studio-community-edition-2015-not-2017)
