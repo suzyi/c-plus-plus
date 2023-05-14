@@ -1,25 +1,37 @@
 # Caffe
 ### 1 - Examples
 All examples below are tested in Anaconda Prompt.
-#### 1 - 1 use caffe
+
 + 0-install and then run your 1st example
-  + [0-caffe_cpu_installation](0-caffe_cpu_installation.md)
-  + [0-caffe_gpu_installation](0-caffe_gpu_installation.md). To-do: check again, May 13, 2023.
-+ [1-hellocaffe](1-hellocaffe) 
-  + is borrowed from [koosyong/caffestudy](https://github.com/koosyong/caffestudy/), with a minor modification made to the original CMakeLists.txt to make it runnable on Windows.
-  + `run.cmd`
-  + To-do: remove rng from main.cpp, which is difficult to understand at the very begining.
+  + [0-caffe_cpu_installation](./0-install/0-caffe_cpu_installation.md)
+  + [0-caffe_gpu_installation](./0-install/0-caffe_gpu_installation.md). To-do: check again, May 13, 2023.
++ 1-data
+  + [blob](./1-data/blob/)
+    + read and write a blob.
+    + fill a blob via an uniform distribution
+    + `caffe::Blob<float> blob_1;` or `caffe::Blob<float> blob_1(int batchsize, int channels, int height, int width); blob_1.mutable_cpu_data()[((b*channels + c)*height + h)*width + w] = 0.5;`
+      + `diff_.ReshapeLike(blob_1);`, if `blob_1` already exists. This function is commonly used in the subtraction of two blobs, i.e., `caffe::caffe_sub(blob_1->count(), blob_1->cpu_data(), blob_2->cpu_data(), diff_.mutable_cpu_data());`.
+      + `blob_1->cpu_data()` vs `blob_1->mutable_cpu_data()`, the former is read-only, while the latter allows you to re-write its value.
+      + `blob_1->cpu_diff(); for (int i=0; i<blob_1->count(); ++i) { cout << blob_1->cpu_diff()[i] << endl; }`
+      + `blob->gpu_data()`
+      + `blob->offset(100,0,0,0)`
+      + `blob->Reshape(50, 40, 30, 20)`
+      + `blob->sumsq_data()`
+  + [datum](./1-data/datumAndBlob/)
+    + Datum (A Datum is more like a single image, because a datum and a cv::Mat can be mutually converted to each other. A Blob is more like a batch of images.)
+    + Datum->cv::Mat->Blob. From Datum to cv::Mat: `const string& data = datum.data();`
+    + Blob->cv::Mat->Datum. From cv::Mat to Datum: `datum_.set_data(buffer);`, where `std::string buffer(datum_size, ' ');`. See [caffe/util/io.cpp](https://github.com/BVLC/caffe/blob/master/src/caffe/util/io.cpp) for more details.
+    + There is no batchsize: `datum_.num();`, no absolute sum: `datum_.asum_data();` no data at certain index: `datum_.data_at(c, h, w);`
+    + `caffe::ReadImageToDatum("1.png", string label, int height, int width, bool is_color, &datum_);`
+    + `cv::Mat DecodeDatumToCVMat(const Datum& datum, bool is_color)`, or `cv::Mat DecodeDatumToCVMatNative(const Datum& datum)`
+    + `void CVMatToDatum(const cv::Mat& cv_img, Datum* datum);`
 + [2-understand dependencies](2-dependencies)
     + [2-1-gflags_glog_example](2-dependencies/2-1-gflags_glog_example)
-      + `run.cmd`
 + [3-convert_imageset](3-convert_imageset)
-  + `run_win.cmd`
-+ [4-mnist_classification](4-mnist_classification)
-  + `bash train.sh`
-  + `bash test.sh`
-+ classification task
-  + [5-classification_inference](5-classification_inference)
-+ segmentation task
++ 4-classification
+  + [mnist_classification](./4-classification/mnist_classification/)
+  + [classification_inference](./4-classification/classification_inference/readme.md)
++ 5-segmentation
   + to-do
 + [6-prototxt_definition](6-prototxt_definition)
 + [7-readAndWriteImgViaCaffeBlob](7-readAndWriteImgViaCaffeBlob)
@@ -30,48 +42,10 @@ All examples below are tested in Anaconda Prompt.
     + Calculate gradient of Euclidean layer, via `mse_layer.Backward(top, propagate_down, bottom);`
   + [sigmoid_layer](./8-layers/sigmoid_layer/)
     + `Forward` and `Backward`
-+ [9-datumAndBlob](9-datumAndBlob)
-  + Datum->cv::Mat->Blob
-  + Blob->cv::Mat->Datum
-#### 1 - 2 modify caffe
-+ [10-add a new function to caffe](10-addNewFunctionsToCaffe/readme.md)
-+ [11-add a new layer to caffe](11-addNewLayersToCaffe)
++ 9-modify caffe
+  + [add new functions to caffe](./9-modifyCaffe/addNewFunctionsToCaffe/readme.md)
+  + [add new layers to caffe](./9-modifyCaffe/addNewLayersToCaffe/readme.md)
 ### 2 - Containers
-+ `caffe::Blob<float> blob_1;` or `caffe::Blob<float> blob_1(int batchsize, int channels, int height, int width); blob_1.mutable_cpu_data()[((b*channels + c)*height + h)*width + w] = 0.5;`
-  + `diff_.ReshapeLike(blob_1);`, if `blob_1` already exists. This function is commonly used in the subtraction of two blobs, i.e., `caffe::caffe_sub(blob_1->count(), blob_1->cpu_data(), blob_2->cpu_data(), diff_.mutable_cpu_data());`.
-  + `blob_1->cpu_data()` vs `blob_1->mutable_cpu_data()`, the former is read-only, while the latter allows you to re-write its value.
-  + `blob_1->cpu_diff(); for (int i=0; i<blob_1->count(); ++i) { cout << blob_1->cpu_diff()[i] << endl; }`
-+ `Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);` Binary long object
-  + `blob->asum_data()`-absolute sum
-  + `blob->channels()`
-  + `blob->count()`-`batchsize*channels*height*width`
-    + `blob->count(0)`-`batchsize*channels*height*width`
-    + `blob->count(1)`-`channels*height*width`
-    + `blob->count(2)`-`height*width`
-    + `blob->count(3)`-`width`
-  + `blob->cpu_data()`
-  + `blob->data_at(0, 1, 43, 32);` - the value at given index.
-  + `blob->gpu_data()`
-  + `blob->height()`
-  + `blob->mutable_cpu_data()`
-  + `blob->num()`-batchsize
-  + `blob->offset(100,0,0,0)`
-  + `blob->Reshape(50, 40, 30, 20)`
-  + `blob->sumsq_data()`
-  + `blob->width()`
-+ Datum (A Datum is more like a single image, because a datum and a cv::Mat can be mutually converted to each other. A Blob is more like a batch of images.)
-  + `caffe::Datum datum_;`
-    + `caffe::ReadImageToDatum("1.png", string label, int height, int width, bool is_color, &datum_);`
-    + `datum_.height();`
-    + `datum_.width();`
-    + `datum_.channels();`
-    + There is no batchsize: `datum_.num();`
-    + There is no absolute sum: `datum_.asum_data();`
-    + There is no data at certain index: `datum_.data_at(c, h, w);`
-    + `cv::Mat DecodeDatumToCVMat(const Datum& datum, bool is_color)`, or `cv::Mat DecodeDatumToCVMatNative(const Datum& datum)`
-    + `void CVMatToDatum(const cv::Mat& cv_img, Datum* datum);`
-    + From cv::Mat to Datum: `datum_.set_data(buffer);`, where `std::string buffer(datum_size, ' ');`. See [caffe/util/io.cpp](https://github.com/BVLC/caffe/blob/master/src/caffe/util/io.cpp) for more details.
-    + From Datum to cv::Mat: `const string& data = datum.data();`
 + layer
   + `caffe::InnerProductLayer< Dtype > Class Template Reference`
     + `LayerParameter layer_ip_param; InnerProductLayer<Dtype> layer_ip(layer_ip_param);`
