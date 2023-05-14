@@ -25,23 +25,10 @@ int main() {
 }
 ```
 
-If the returned value required (i.e., not `void functionName`), then we have be careful. To be specific, 
 ```
 template <typename Dtype>
-Dtype return_value(Dtype var_1) {
-	return var_1;
-}
-
-int main() {
-	float a(1.0);
-	float value = return_value(a);
-}
-```
-may fail in compilation. To solve this failure, we can use
-```
-int main() {
-	float a(1.0);
-	float value = return_value<float>(a);
+inline Dtype sigmoid(Dtype x) {
+  return 0.5 * tanh(0.5 * x) + 0.5;
 }
 ```
 ### 2-class template

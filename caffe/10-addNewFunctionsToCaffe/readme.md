@@ -19,7 +19,7 @@ float caffe_cpu_mse(const int count, const int num, const float* a, const float*
 }
 ```
 ### 3 - calculate mse via caffe_cpu_mse
-Open a terminal and execute `F:\cpp\caffe\10-caffeCpuSsim> bash run_me.sh`
+Open a terminal and execute `F:\cpp\caffe\10-caffeCpuMse> bash run_me.sh`
 
 ### 4 - errors you may encounter
 + Error 1: "caffe_cpu_mse is not a member of caffe" may appear. 

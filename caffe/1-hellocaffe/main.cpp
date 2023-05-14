@@ -13,15 +13,13 @@ typedef double Dtype;
 
 int main(int argc, char** argv) { 
     Blob<Dtype>* const blob = new Blob<Dtype>(20, 30, 40, 50);
-    if(blob){
-        cout<<"Size of blob:";
-        cout<<" N="<<blob->num();
-        cout<<" K="<<blob->channels();
-        cout<<" H="<<blob->height();
-        cout<<" W="<<blob->width();
-        cout<<" C="<<blob->count();
-        cout<<endl;
-    }
+    cout<<"Size of blob:";
+    cout<<" N="<<blob->num();
+    cout<<" K="<<blob->channels();
+    cout<<" H="<<blob->height();
+    cout<<" W="<<blob->width();
+    cout<<" C="<<blob->count();
+    cout<<endl;
 
     // Random sampling from uniform distribution
     FillerParameter filler_param;
